@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<project name="joomla-doku" default="build" basedir=".">
 
-<project name="joomla-doku-kuku" default="build"
-	basedir="/home/elkuku/Downloads/docbook/dobudish-1.1.4">
-
+	<!-- CHANGE ME !!! -->
 	<property name="dobudish_path" value="/home/elkuku/Downloads/docbook/dobudish-1.1.4" />
-
-	<property name="dest_path"
-		value="/home/elkuku/eclipsespace/indigogit2/joomla-platform-kuku-gh-pages" />
 
 	<target name="build" depends="clean,buildDoku" />
 
 	<target name="clean">
-		<delete dir="${dest_path}/build" />
-		<mkdir dir="${dest_path}/build" />
+		<delete dir="${basedir}/build" />
+		<mkdir dir="${basedir}/build" />
 	</target>
 
 	<target name="buildDoku">
@@ -25,31 +21,31 @@
 	</target>
 
 	<target name="builder">
-		<delete dir="${dest_path}/${project}" />
-		<mkdir dir="${dest_path}/${project}" />
+		<delete dir="${basedir}/${project}" />
+		<mkdir dir="${basedir}/${project}" />
 
-		<exec executable="${dobudish_path}/generator.sh">
+		<exec executable="./generator.sh" dir="${dobudish_path}">
 			<arg value="${project}" />
 			<arg value="html" />
 		</exec>
-		<exec executable="${dobudish_path}/generator.sh">
+		<exec executable="./generator.sh" dir="${dobudish_path}">
 			<arg value="${project}" />
 			<arg value="epub" />
 		</exec>
-		<exec executable="${dobudish_path}/generator.sh">
+		<exec executable="./generator.sh" dir="${dobudish_path}">
 			<arg value="${project}" />
 			<arg value="pdf" />
 		</exec>
 
-		<copy todir="${dest_path}/${project}">
+		<copy todir="${basedir}/${project}">
 			<fileset dir="${dobudish_path}/documents/${project}/output/html">
 			</fileset>
 		</copy>
-		<copy todir="${dest_path}/build">
+		<copy todir="${basedir}/build">
 			<fileset dir="${dobudish_path}/documents/${project}/output/epub">
 			</fileset>
 		</copy>
-		<copy todir="${dest_path}/build">
+		<copy todir="${basedir}/build">
 			<fileset dir="${dobudish_path}/documents/${project}/output/pdf">
 			</fileset>
 		</copy>
