@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <project name="joomla-doku-kuku" default="build"
 	basedir="/home/elkuku/Downloads/docbook/dobudish-1.1.4">
 
@@ -7,59 +8,50 @@
 	<property name="dest_path"
 		value="/home/elkuku/eclipsespace/indigogit2/joomla-platform-kuku-gh-pages" />
 
-	<target name="build">
+	<target name="build" depends="clean,buildDoku" />
+
+	<target name="clean">
 		<delete dir="${dest_path}/build" />
 		<mkdir dir="${dest_path}/build" />
+	</target>
 
-		<delete dir="${dest_path}/coding-standards" />
-		<mkdir dir="${dest_path}/coding-standards" />
+	<target name="buildDoku">
+		<antcall target="builder">
+			<param name="project" value="coding-standards" />
+		</antcall>
+		<antcall target="builder">
+			<param name="project" value="platform-manual" />
+		</antcall>
+	</target>
 
-		<delete dir="${dest_path}/manual" />
-		<mkdir dir="${dest_path}/manual" />
+	<target name="builder">
+		<delete dir="${dest_path}/${project}" />
+		<mkdir dir="${dest_path}/${project}" />
 
-		<!-- Coding standards -->
-		
 		<exec executable="${dobudish_path}/generator.sh">
-			<arg value="jcoding-standards" />
+			<arg value="${project}" />
 			<arg value="html" />
 		</exec>
-
-		<copy todir="${dest_path}/coding-standards">
-			<fileset dir="${dobudish_path}/documents/jcoding-standards/output/html">
-			</fileset>
-		</copy>
-
 		<exec executable="${dobudish_path}/generator.sh">
-			<arg value="jcoding-standards" />
+			<arg value="${project}" />
 			<arg value="epub" />
 		</exec>
-
-		<copy todir="${dest_path}/build">
-			<fileset dir="${dobudish_path}/documents/jcoding-standards/output/epub">
-			</fileset>
-		</copy>
-		
-		<!-- Manual -->
-
 		<exec executable="${dobudish_path}/generator.sh">
-			<arg value="jplatform-manual" />
-			<arg value="html" />
+			<arg value="${project}" />
+			<arg value="pdf" />
 		</exec>
 
-		<copy todir="${dest_path}/manual">
-			<fileset dir="${dobudish_path}/documents/jplatform-manual/output/html">
+		<copy todir="${dest_path}/${project}">
+			<fileset dir="${dobudish_path}/documents/${project}/output/html">
 			</fileset>
 		</copy>
-
-		<exec executable="${dobudish_path}/generator.sh">
-			<arg value="jplatform-manual" />
-			<arg value="epub" />
-		</exec>
-
 		<copy todir="${dest_path}/build">
-			<fileset dir="${dobudish_path}/documents/jplatform-manual/output/epub">
+			<fileset dir="${dobudish_path}/documents/${project}/output/epub">
+			</fileset>
+		</copy>
+		<copy todir="${dest_path}/build">
+			<fileset dir="${dobudish_path}/documents/${project}/output/pdf">
 			</fileset>
 		</copy>
 	</target>
-
 </project>
