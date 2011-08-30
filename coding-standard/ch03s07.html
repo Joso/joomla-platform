@@ -1,0 +1,41 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.7.&nbsp;Class Definitions</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.76.1-RC2"><link rel="home" href="index.html" title="The Joomla! Platform Coding Standards"><link rel="up" href="ch03.html" title="Chapter&nbsp;3.&nbsp;PHP"><link rel="prev" href="ch03s06.html" title="3.6.&nbsp;Function Definitions"><link rel="next" href="ch03s08.html" title="3.8.&nbsp;Naming Conventions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.7.&nbsp;Class Definitions</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s06.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;3.&nbsp;PHP</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch03s08.html">Next</a></td></tr></table><hr></div><div class="sect1" title="3.7.&nbsp;Class Definitions"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e285"></a>3.7.&nbsp;Class Definitions</h2></div></div></div><p>Class definitions start on a new line and the opening and closing braces are also placed on new lines. Class methods
+    must follow the guidelines for Function Definitions. Properties and methods must follow OOP standards and be declared
+    appropriately (using public, protected, private and static as applicable). </p><p>Class definitions, properties and methods must each be provided with a DocBlock in accordance with the following
+    sections. </p><div class="sect2" title="3.7.1.&nbsp;Class DocBlock Headers"><div class="titlepage"><div><div><h3 class="title"><a name="d0e292"></a>3.7.1.&nbsp;Class DocBlock Headers</h3></div></div></div><p>The class Docblock consists of the following required and optional elements in the fol-lowing order.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Short description (required, unless the file contains more than two classes or functions), followed by a blank
+          line).</p></li><li class="listitem"><p>Long description (optional, followed by a blank line).</p></li><li class="listitem"><p>@category (optional and rarely used)</p></li><li class="listitem"><p>@package (required)</p></li><li class="listitem"><p>@subpackage (optional)</p></li><li class="listitem"><p>@author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like
+          Geshi)</p></li><li class="listitem"><p>@copyright (optional unless different from the file Docblock)</p></li><li class="listitem"><p>@license (optional unless different from the file Docblock)</p></li><li class="listitem"><p>@deprecated (optional)</p></li><li class="listitem"><p>@link (optional)</p></li><li class="listitem"><p>@see (optional)</p></li><li class="listitem"><p>@since (required, being the version of the software the class was introduced)</p></li></ul></div></div><div class="sect2" title="3.7.2.&nbsp;Class Property DocBlocks"><div class="titlepage"><div><div><h3 class="title"><a name="d0e334"></a>3.7.2.&nbsp;Class Property DocBlocks</h3></div></div></div><p>The class property Docblock consists of the following required and optional elements in the following order.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>Short description (required, followed by a blank line)</p></li><li class="listitem"><p>@var (required, followed by the property type)</p></li><li class="listitem"><p>@deprecated (optional)</p></li><li class="listitem"><p>@since (required)</p></li></ul></div></div><div class="sect2" title="3.7.3.&nbsp;Class Method DocBlocks"><div class="titlepage"><div><div><h3 class="title"><a name="d0e352"></a>3.7.3.&nbsp;Class Method DocBlocks</h3></div></div></div><p>The DocBlock for class methods follows the same convention as for PHP functions (see above).</p><div class="example"><a name="d0e357"></a><p class="title"><b>Example&nbsp;3.4.&nbsp;Example class definition</b></p><div class="example-contents"><pre class="programlisting">&lt;?php
+/**
+ * A utility class.
+ *
+ * @package     Joomla.Framework
+ * @subpackage  XBase
+ * @since       1.6
+ */
+class JClass extends JObject
+{
+    /**
+     * Human readable name
+     *
+     * @var    string
+     * @since  1.6
+     */
+    public $name;
+
+    /**
+     * Method to get the name of the class.
+     *
+     * @param      string  $case  Optionally return in upper/lower case.
+     *
+     * @return     boolean  True if successfully loaded, false otherwise.
+     *
+     * @since      1.6
+     */
+    public function getName($case = null)
+    {
+        // Body of method.
+
+        return $this-&gt;name;
+    }
+}</pre></div></div><br class="example-break"></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s06.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch03s08.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.6.&nbsp;Function Definitions&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;3.8.&nbsp;Naming Conventions</td></tr></table></div></body></html>

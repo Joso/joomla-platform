@@ -1,0 +1,20 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.10.&nbsp;SQL Queries</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.76.1-RC2"><link rel="home" href="index.html" title="The Joomla! Platform Coding Standards"><link rel="up" href="ch03.html" title="Chapter&nbsp;3.&nbsp;PHP"><link rel="prev" href="ch03s09.html" title="3.9.&nbsp;Error Handling"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.10.&nbsp;SQL Queries</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s09.html">Prev</a>&nbsp;</td><th width="60%" align="center">Chapter&nbsp;3.&nbsp;PHP</th><td width="20%" align="right">&nbsp;</td></tr></table><hr></div><div class="sect1" title="3.10.&nbsp;SQL Queries"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e439"></a>3.10.&nbsp;SQL Queries</h2></div></div></div><p>SQL keywords are to be written in uppercase, while all other identifiers (which the ex-ception of quoted text obviously)
+    is to be in lowercase.</p><p>All table names should use the #__ prefix rather than jos_ to access Joomla contents and allow for the user defined
+    database prefix to be applied. Queries should also use the JDatabaseQuery API.</p><div class="example"><a name="d0e446"></a><p class="title"><b>Example&nbsp;3.6.&nbsp;Example query</b></p><div class="example-contents"><pre class="programlisting">// Get the database connector.
+$db = JFactory::getDBO();
+
+// Get the query from the database connector.
+$query = $db-&gt;getQuery(true);
+
+// Build the query programatically (using chaining if desired).
+$query-&gt;select('u.*')
+    // Use the qn alias for the quoteName method to quote table names.
+    -&gt;from($db-&gt;qn('#__users').' AS u'));
+
+// Tell the database connector what query to run.
+$db-&gt;setQuery($query);
+
+// Invoke the query or data retrieval helper.
+$users = $db-&gt;loadObjectList();</pre></div></div><br class="example-break"></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s09.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right">&nbsp;</td></tr><tr><td width="40%" align="left" valign="top">3.9.&nbsp;Error Handling&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;</td></tr></table></div></body></html>
