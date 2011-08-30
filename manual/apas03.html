@@ -1,0 +1,168 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>A.3.&nbsp;Version 11.1</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.76.1-RC2"><link rel="home" href="index.html" title="The Joomla! Platform Manual"><link rel="up" href="apa.html" title="Appendix&nbsp;A.&nbsp;Changelog"><link rel="prev" href="apas02.html" title="A.2.&nbsp;Version 11.2"><link rel="next" href="apb.html" title="Appendix&nbsp;B.&nbsp;Configuring Code Analysis Tools"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">A.3.&nbsp;Version 11.1</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="apas02.html">Prev</a>&nbsp;</td><th width="60%" align="center">Appendix&nbsp;A.&nbsp;Changelog</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="apb.html">Next</a></td></tr></table><hr></div><div class="sect1" title="A.3.&nbsp;Version 11.1"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e1219"></a>A.3.&nbsp;Version 11.1</h2></div></div></div><p>Version 11.1 was tagged on DD July 2011. This was the inaugral release of the platform following its separation from the
+    Joomla CMS trunk. It includes the following significant changes:</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/72" title="Closed 2011-07-05T01:57:23Z" target="_top">#72</a>
+] Some modifications to fix unit tests, etc. (					<a class="link" href="https://api.github.com/users/LouisLandry" target="_top">LouisLandry</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/67" title="Closed 2011-07-04T17:00:30Z" target="_top">#67</a>
+] Docblock Work (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Docblocks in database continued</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/68" title="Closed 2011-07-04T17:00:29Z" target="_top">#68</a>
+] Docblocks (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>More docblocks</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/70" title="Closed 2011-07-04T16:59:27Z" target="_top">#70</a>
+] PHP Strict Errors (					<a class="link" href="https://api.github.com/users/AmyStephen" target="_top">AmyStephen</a>
+)</p><p>Commit 1 - Minor change made to JDate::setTimezone to correct PHP Strict Error
+
+Commit 2 - Remove JButton::fetchID parent class - child classes are not consistent with parameters so there is no easy way to make the parent class consistent. Since it is not used and since it only returns when executed, removing it will at least get rid of the Strict eror.
+</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/25" title="Closed 2011-06-30T04:50:46Z" target="_top">#25</a>
+] Fixes for #22587 and #24285 (					<a class="link" href="https://api.github.com/users/klas" target="_top">klas</a>
+)</p><p>
+#22587
+- Change modules cache lifetime to be set as intended (seconds must be converted to minutes)
+- Cache handler needs to use all parameters for static variable caching
+
+Also $_handler is a static variable and so can't be referenced as $this-&gt;_handler  (this bug was introduced after #22587 report) - change back to self::$_handler
+
+#24285
+Fix changes module caching to store only headers that changed after module was executed. Headers before and after callback are compared.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/65" title="Closed 2011-06-29T20:52:23Z" target="_top">#65</a>
+] Docblocks (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Some more work</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/64" title="Closed 2011-06-29T14:24:33Z" target="_top">#64</a>
+] A couple minor adjustments to the JApplication constructor and JDocumentOpenSearch tests. (					<a class="link" href="https://api.github.com/users/LouisLandry" target="_top">LouisLandry</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/62" title="Closed 2011-06-24T22:28:43Z" target="_top">#62</a>
+] Deprecate JException (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Deprecate JException
+
+I believe that's the intention see also mailing list discussion
+
+http://groups.google.com/group/joomla-dev-framework/browse_thread/thread/930aa3cb51a88f4c
+
+</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/61" title="Closed 2011-06-24T08:16:49Z" target="_top">#61</a>
+] Rearranged if statement (					<a class="link" href="https://api.github.com/users/rcorral" target="_top">rcorral</a>
+)</p><p>It will be quicker to check for null every time than the $plugin variable</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/60" title="Closed 2011-06-23T15:59:33Z" target="_top">#60</a>
+] Secruity (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>These are tow security fixes/improvements I wrote a while ago but are only now public. They have already been committed to the 1.6.4 branch.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/59" title="Closed 2011-06-23T15:59:21Z" target="_top">#59</a>
+] Docblocks (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>New version of the old pull request</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/48" title="Closed 2011-06-21T23:10:34Z" target="_top">#48</a>
+] Docblocks (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>More updating of doc blocks</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/57" title="Closed 2011-06-21T03:32:39Z" target="_top">#57</a>
+] Restoring memory limit after daemon test (					<a class="link" href="https://api.github.com/users/ianmacl" target="_top">ianmacl</a>
+)</p><p>The daemon class sets the maximum memory to 256M which causes the code coverage report to fail.  This change will restore the default value after the test is run.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/58" title="Closed 2011-06-21T03:31:54Z" target="_top">#58</a>
+] Adding files for continuous integration (					<a class="link" href="https://api.github.com/users/ianmacl" target="_top">ianmacl</a>
+)</p><p>Added an ant script and moved the phpunit.xml.dist file into root to facilitate continuous integration.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/53" title="Closed 2011-06-19T17:13:12Z" target="_top">#53</a>
+] Let getModules get the module parameters. (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>This is in response to this discussion on the general list. 
+
+https://groups.google.com/d/topic/joomla-dev-general/vQ1BY2AwCRo/discussion</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/26" title="Closed 2011-06-19T17:11:48Z" target="_top">#26</a>
+] Add batch processing to framework (Feature Request #22590) (					<a class="link" href="https://api.github.com/users/mbabker" target="_top">mbabker</a>
+)</p><p>Consistent with http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=22590...
+
+This pull request focuses only on the framework changes for this feature request.  Between the 1.6.3 release and the platform merge, batch processing was added to com_content.  Upon my own review and testing, the code used here was applied in a manner that it could be reused throughout components that follow a category-&gt;item structure.
+
+Specific to the framework are the following changes:
+- JControllerForm: Function batch added
+- JModelAdmin: Functions batch, batchAccess, batchCopy, batchMove, and generateNewTitle added
+- JHtmlBatch added
+
+If implemented, changes to the CMS can be made as demonstrated via my SVN branch (mbabker).</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/38" title="Closed 2011-06-19T17:10:29Z" target="_top">#38</a>
+] Add JHtmlBehavior::multiselect() and move the multiselect JavaScript code (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>Add JHtmlBehavior::multiselect() and move the multiselect JavaScript code to core.js.
+Add the option to use id's other than "adminForm" with multiselect.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/52" title="Closed 2011-06-19T17:09:53Z" target="_top">#52</a>
+] fix for removeUserFromGroup(), Ticket does not exist for it (					<a class="link" href="https://api.github.com/users/svanschu" target="_top">svanschu</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/55" title="Closed 2011-06-19T17:09:05Z" target="_top">#55</a>
+] Don't render meta elements without content (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>CMS Issue: http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=26184
+
+Just a little markup saver. Also helps a little with some meta elements not valid in HTML5.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/56" title="Closed 2011-06-19T17:08:18Z" target="_top">#56</a>
+] Use local storage for tabs (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>CMS Issue: http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=26192
+
+Saves a couple of cookies in the administration without loosing any functionality. Shouldn't have an BC issues.</p></li></ul></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/51" title="Closed 2011-06-16T17:35:08Z" target="_top">#51</a>
+] Test suite cleanup (					<a class="link" href="https://api.github.com/users/sebastianbergmann" target="_top">sebastianbergmann</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/42" title="Closed 2011-06-15T16:52:51Z" target="_top">#42</a>
+] Corrects some errors in the router + add some unit test (					<a class="link" href="https://api.github.com/users/chdemko" target="_top">chdemko</a>
+)</p><p>see
+http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=23999</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/41" title="Closed 2011-06-15T00:31:20Z" target="_top">#41</a>
+] Component install rollback function rollback_menu is unimplemented leaving items in jos_menu (					<a class="link" href="https://api.github.com/users/chdemko" target="_top">chdemko</a>
+)</p><p>see
+http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=24549
+http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=25663</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/50" title="Closed 2011-06-14T20:38:14Z" target="_top">#50</a>
+] Namespace the checkAll() function (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>Issue on JoomlaCode: http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=26124</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/47" title="Closed 2011-06-14T20:36:25Z" target="_top">#47</a>
+] 2 platform changes that will enable Joomfish to interact with database queries more effectively (redux) (					<a class="link" href="https://api.github.com/users/GeraintEdwards" target="_top">GeraintEdwards</a>
+)</p><p>Sorry - closed pull request 44 by mistake (I'm new to github).   This new request has the getter added to the correct class (I'd cut and pasted it in the wrong class last time :( ).  To avoid  confusion I'll repeat my comment about setters:
+
+A setter is a good idea (but not essential) but it would allow for unforeseen eventualities. The only problem with the setter is how it would interact with JDatabaseQueryElement - i.e. which one of the elements would it be setting?
+
+You can always simulate a setter by getting the separate element groups, calling clear and then resetting the relevant element. e.g. in pseudo code:
+$elements = $query-&gt;where;
+// do something to elements
+$query-&gt;clear('where');
+foreach ($elements as $elem){
+$query-&gt;where($elem);
+}
+
+Perhaps the last 4 lines would be the code for the __set method?</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/46" title="Closed 2011-06-14T20:33:08Z" target="_top">#46</a>
+] Move JUpdater:arrayUnique() to JArrayHelper::arrayUnique(). (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>IMO this sort of utility function is potentially useful for extension as well and should be located in a place where people would actually look for it :)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/49" title="Closed 2011-06-14T20:32:06Z" target="_top">#49</a>
+] Sync up media changes from trunk (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/18" title="Closed 2011-06-10T18:13:01Z" target="_top">#18</a>
+] Add JDocumentOpensearch. (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>These are the library changes for this patch: http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=25250
+
+This is potentially useful for other apps as well.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/45" title="Closed 2011-06-10T18:12:09Z" target="_top">#45</a>
+] Cleared Fatal crash if JTestConfig not found (					<a class="link" href="https://api.github.com/users/Paladin" target="_top">Paladin</a>
+)</p><p>Added different config file to JDatabaseMySQLTest to allow an independent decision
+by the tester on whether these tests should be run. It now requires
+config_mysql.php to contain the JMySQLTestConfig class to be present or the tests
+will be skipped.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/12" title="Closed 2011-06-10T04:43:19Z" target="_top">#12</a>
+] New Unit tests (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>A couple of unit tests from my Bitbucket branch.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/39" title="Closed 2011-06-10T04:41:34Z" target="_top">#39</a>
+] Update FancyUpload to version 3.0.1. (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/33" title="Closed 2011-06-10T04:35:25Z" target="_top">#33</a>
+] Fixed JStringTest (					<a class="link" href="https://api.github.com/users/Paladin" target="_top">Paladin</a>
+)</p><p>Darwin bug was causing tests to fail. Added test for Darwin, and if
+tests are running under Darwin, it marks the international string
+tests as skipped, and gives the reason why.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/34" title="Closed 2011-06-10T04:34:15Z" target="_top">#34</a>
+] Fixed broken JCacheStorageTest test (					<a class="link" href="https://api.github.com/users/Paladin" target="_top">Paladin</a>
+)</p><p>Test case did not handle mimimum cache life properly. Also moved
+test into the JoomlaTestCase class hierarchy because of its dependencies
+and cleaned up duplicated code.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/35" title="Closed 2011-06-10T04:33:13Z" target="_top">#35</a>
+] Fixed JCacheTest cases (					<a class="link" href="https://api.github.com/users/Paladin" target="_top">Paladin</a>
+)</p><p>JCacheTest test cases were pointed at a directory structure that no
+longer exists in the new testing environment. I pointed them to the
+correct location.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/37" title="Closed 2011-06-10T02:49:40Z" target="_top">#37</a>
+] JDocumentRenderer tests skipped (					<a class="link" href="https://api.github.com/users/Paladin" target="_top">Paladin</a>
+)</p><p>The JDocumentRendererAtom and JDocumentRendererRSS classes are too tightly coupled
+for good testing right now, so I marked the tests as skipped with a todo to come back after
+breaking more dependencies in the code.
+
+I basically punted on these tests, after doing a minor bit of code cleanup. They're too tightly coupled with too long of a chain of static method calls to be able to test as a block right now. So I marked the tests as skipped, and left a TODO to revisit them after we've broken a few more layers of dependency.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/32" title="Closed 2011-06-10T02:48:47Z" target="_top">#32</a>
+] Cleaning up after JDocument changes (					<a class="link" href="https://api.github.com/users/Paladin" target="_top">Paladin</a>
+)</p><p>Removing methods under test while ignoring the tests
+caused a mess that needed cleaned up.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/8" title="Closed 2011-06-10T02:45:08Z" target="_top">#8</a>
+] Docblocks branch (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>This should be just the doc block edits.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/31" title="Closed 2011-06-07T07:19:35Z" target="_top">#31</a>
+] Cleaned up After JVersion Rename (					<a class="link" href="https://api.github.com/users/Paladin" target="_top">Paladin</a>
+)</p><p>Rename of JVersion left the tests for it untouched. Renamed the test file and everything associated with JVersion to JPlatform, to catch up with change.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/13" title="Closed 2011-05-26T10:27:53Z" target="_top">#13</a>
+] Move the rendering of HTML link elements to JDocumentRendererHead. (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>Previously discussed here: http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=25251
+
+Note: This has some small backwards compatibility consequences (e.g. if somebody chose to override either of the two classes involved) but it makes JDocument more consistent and opens up future use (head links in other types of documents).</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/22" title="Closed 2011-05-26T10:14:10Z" target="_top">#22</a>
+] Bb bit bucket url stuff updated (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>old request did not have the test</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/17" title="Closed 2011-05-26T10:25:14Z" target="_top">#17</a>
+] Remove getHeadData(), setHeadData() and mergeHeadData() from JDocument si (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>Remove getHeadData(), setHeadData() and mergeHeadData() from JDocument since it only applies to JDocumentHTML.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/23" title="Closed 2011-05-26T10:15:38Z" target="_top">#23</a>
+] Remove workaround for PHP 4 and PHP 5.2.3 in JFTP and JXMLElement. (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/11" title="Closed 2011-05-26T10:08:53Z" target="_top">#11</a>
+] AJAX improvements (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>Small library modification to make it easier to use AJAX or other JS functionality with the Joomla framework.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/20" title="Closed 2011-05-26T09:31:37Z" target="_top">#20</a>
+] Use require_once instead of include in JLoader (					<a class="link" href="https://api.github.com/users/rvsjoen" target="_top">rvsjoen</a>
+)</p><p>I do not know if there is a good reason for using include over require_once, if there is, please disregard this commit. All unit tests ran fine with this change.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/14" title="Closed 2011-05-22T10:24:40Z" target="_top">#14</a>
+] JURI bugfix + stuff (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>This fixes a regression in JURI (first commit). It also contains some new unit tests and code style improvements.
+
+The last commit removes a function parameter that is unused.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/19" title="Closed 2011-05-22T08:30:33Z" target="_top">#19</a>
+] Fix some unit tests so they also work on Windows (					<a class="link" href="https://api.github.com/users/rvsjoen" target="_top">rvsjoen</a>
+)</p><p>This has been previously discussed in this thread
+
+http://groups.google.com/group/joomla-dev-framework/browse_thread/thread/2bbd283638862a79</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/2" title="Closed 2011-05-12T21:14:33Z" target="_top">#2</a>
+] Missing paremeter (					<a class="link" href="https://api.github.com/users/jonnsl" target="_top">jonnsl</a>
+)</p><p>The function getUserState in the JApplication class is missing the $default parameter</p></li></ul></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="apas02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="apa.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="apb.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">A.2.&nbsp;Version 11.2&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;Appendix&nbsp;B.&nbsp;Configuring Code Analysis Tools</td></tr></table></div></body></html>

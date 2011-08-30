@@ -1,0 +1,205 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Appendix&nbsp;A.&nbsp;Changelog</title><link rel="stylesheet" type="text/css" href="style.css"><meta name="generator" content="DocBook XSL Stylesheets V1.76.1-RC2"><link rel="home" href="index.html" title="The Joomla! Platform Manual"><link rel="up" href="index.html" title="The Joomla! Platform Manual"><link rel="prev" href="pr01.html" title="Preface"><link rel="next" href="apas02.html" title="A.2.&nbsp;Version 11.2"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">Appendix&nbsp;A.&nbsp;Changelog</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="pr01.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="apas02.html">Next</a></td></tr></table><hr></div><div class="appendix" title="Appendix&nbsp;A.&nbsp;Changelog"><div class="titlepage"><div><div><h2 class="title"><a name="app1"></a>Appendix&nbsp;A.&nbsp;Changelog</h2></div></div></div><div class="toc"><p><b>Table of Contents</b></p><dl><dt><span class="sect1"><a href="apa.html#d0e13">A.1. Version 11.3</a></span></dt><dt><span class="sect1"><a href="apas02.html">A.2. Version 11.2</a></span></dt><dt><span class="sect1"><a href="apas03.html">A.3. Version 11.1</a></span></dt></dl></div><div class="sect1" title="A.1.&nbsp;Version 11.3"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d0e13"></a>A.1.&nbsp;Version 11.3</h2></div></div></div><p>Version 11.3 is currently under development.</p><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/263" title="Closed 2011-08-20T04:16:41Z" target="_top">#263</a>
+] Fixes code style issues. (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Doc block work mainly in html/parameter</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/266" title="Closed 2011-08-20T17:43:46Z" target="_top">#266</a>
+] Fixes typographical errors in docbook files. (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/271" title="Closed 2011-08-21T13:44:48Z" target="_top">#271</a>
+] Fixes code style issues. (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Continued work on cleaning up doc blocs.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/262" title="Closed 2011-08-22T06:45:10Z" target="_top">#262</a>
+] Adds a JString::increment method and fixes bugs in JHtmlString::truncate. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p><p>Adds a JString::increment method to allow for easier incrementing of title/label strings such as "Title (2)" that are used in copying routines within an application.
+
+This method can be used to replace duplicate code in the CMS: CategoryModelCategory, MenusModelItem, ModulesModelMouldes and TemplatesModelStyle.
+
+Updates JModelAdmin to use the new method in generateNewTitle.
+
+Code coverage and code cleaning also included.
+
+Fixes bugs in JHtmlString::truncate where tags are not being properly closed.
+
+Adds unit tests for JHtmlString.
+</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/272" title="Closed 2011-08-21T21:41:34Z" target="_top">#272</a>
+] Fixes DocBlocks in JTree and JParameter elements. (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/257" title="Closed 2011-08-20T10:22:26Z" target="_top">#257</a>
+] Adds JArrayHelper::pivot, improves JArrayHelper::sortObjects and provides full code coverage. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p><p>Alphabetised methods in JArrayHelperTest and adds test for arrayUnique method.
+
+Refactored unreachable code in _fromObject (arrays cannot be processed without the recurse argument being true. Added test case to verify).
+
+Changed testSortObjects to do most of the tests on a mac (ignoring only those that cause problems).
+
+Refactors sortObjects method to use internal static variables for sort properties, instead of some arbitrary [bad practice] global variable.
+
+Added JArrayHelper::pivot which allows you to create pure reverse lookups on an array of scalar, array or object elements, or lookups based on collections of common values or the designated array/object key.
+
+</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/232" title="Closed 2011-08-20T08:46:34Z" target="_top">#232</a>
+] Joomla CMS [#25957] wrong behaviour of libraries/joomla/application/module/JModuleHelper:moduleCache()  (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Based on code proposed here: http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=25957  This issue has been in the tracker since May.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/260" title="Closed 2011-08-20T00:39:03Z" target="_top">#260</a>
+] Joomla CMS [#26612] Contacts Component sets Reply-To incorrectly in 1.7  (					<a class="link" href="https://api.github.com/users/infograf768" target="_top">infograf768</a>
+)</p><p>Fixes platform issues related to http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=26612
+
+</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/229" title="Closed 2011-08-20T00:30:21Z" target="_top">#229</a>
+] Joomla CMS  [#25962] APC lock method seems to be returning the wrong thing  (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Fixes incorrect return value in docblocks.
+
+http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=25962</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/214" title="Closed 2011-08-19T04:37:02Z" target="_top">#214</a>
+] Adds universal mocks for testing and JDate::getInstance. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p><p>Added support for getting universal mock objects in JoomlaTestCase providing getters for JApplication, JConfig, JDatabase and JSession mocks.
+
+Converted JDatabaseQuery test to use the universal database mock.
+
+Improved setup and teardown of rules field test in JForm.
+
+Added tests for JDate (tests involving language are incomplete because of tight coupling to the CMS).
+
+Added static getInstance method to JDate as an alias for new JDate.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/255" title="Closed 2011-08-17T22:09:51Z" target="_top">#255</a>
+] Added JLog dependency to JError and JException (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Add JLog for JError and JException since both are deprecated and deprecation logging was causing an infinite loop.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/256" title="Closed 2011-08-18T10:18:47Z" target="_top">#256</a>
+] Fixes login and module display issues in the CMS  (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p><p>Using database magic calls (qn and q) causes problems in the session database class, so these have been replaced with the fully qualified names.
+A small glitch in the module display was fixed.
+JAuthentication::authenticate was still being defined as static which caused problems with the plugins.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/254" title="Closed 2011-08-17T21:40:05Z" target="_top">#254</a>
+] Fixes comments in sniff and docblocks in JError (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/252" title="Closed 2011-08-16T21:54:43Z" target="_top">#252</a>
+] Turn JAuthentication back from static class and updated tests accordingly (					<a class="link" href="https://api.github.com/users/pasamio" target="_top">pasamio</a>
+)</p><p>This fixes an issue with syncing the CMS where the CMS breaks because the plugins aren't loaded properly. This restores the pre-11.2 behaviour of not using a static class. Also a minor update to fix spaces used instead of tabs in the test.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/247" title="Closed 2011-08-16T21:25:54Z" target="_top">#247</a>
+] Check if module properly is set (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>In testing the JBs found a regression in that in getModule the module helper is now not setting $module-&gt;user to 0 for all modules any more. I did some digging and this seems to be a legacy property from 1.0 and seemed to possible check if you were a super user for menu modules.  As far as I can tell it has no use at all in the current CMS. (Looking at the 1.0 module code explains a lot about some other parts of the module helper.)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/248" title="Closed 2011-08-15T14:40:26Z" target="_top">#248</a>
+] Added a command line application to automatically generate the changelog from closed pull requests. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/236" title="Closed 2011-08-14T18:27:10Z" target="_top">#236</a>
+] Add a unit test for JFormRuleColor and fix the rule. (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/209" title="Closed 2011-08-13T20:52:17Z" target="_top">#209</a>
+] Updated changelog (					<a class="link" href="https://api.github.com/users/nikosdion" target="_top">nikosdion</a>
+)</p><p>Updated change log with the proposed change, as per Andrew's request at https://github.com/joomla/joomla-platform/pull/201#issuecomment-1776347</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/222" title="Closed 2011-08-13T07:16:59Z" target="_top">#222</a>
+] Fixing checkstyle errors for JPagination. (					<a class="link" href="https://api.github.com/users/LouisLandry" target="_top">LouisLandry</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/221" title="Closed 2011-08-13T06:59:09Z" target="_top">#221</a>
+] Fixing up some checkstyle issues. (					<a class="link" href="https://api.github.com/users/LouisLandry" target="_top">LouisLandry</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/220" title="Closed 2011-08-13T06:30:36Z" target="_top">#220</a>
+] Fixed missing J prefix when registering JDatabaseException. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/212" title="Closed 2011-08-13T06:13:01Z" target="_top">#212</a>
+] Fix login routine to display error message generated by authentication pl (					<a class="link" href="https://api.github.com/users/roland-d" target="_top">roland-d</a>
+)</p><p>Fix login routine to display error message generated by authentication plugin.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/219" title="Closed 2011-08-13T06:08:38Z" target="_top">#219</a>
+] Merge with CMS trunk change. (					<a class="link" href="https://api.github.com/users/LouisLandry" target="_top">LouisLandry</a>
+)</p><p>Closes #197.
+
+and
+
+Closes #172.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/218" title="Closed 2011-08-13T05:33:01Z" target="_top">#218</a>
+] Fix up specification of abstract JDatabase::getTableColumns. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/215" title="Closed 2011-08-12T21:14:43Z" target="_top">#215</a>
+] Description for pull request 212 (					<a class="link" href="https://api.github.com/users/roland-d" target="_top">roland-d</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/213" title="Closed 2011-08-12T21:14:07Z" target="_top">#213</a>
+] Fix annoying typo. (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/211" title="Closed 2011-08-11T21:34:28Z" target="_top">#211</a>
+] CodeSniffer Cleanup on JForm library (					<a class="link" href="https://api.github.com/users/mbabker" target="_top">mbabker</a>
+)</p><p>Used the CodeSniffer to do a cleanup on the JForm library.  With these changes, no further messages appear in the report.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/208" title="Closed 2011-08-10T20:27:43Z" target="_top">#208</a>
+] Changing access to JDatabase::replacePrefix() back to public (					<a class="link" href="https://api.github.com/users/elkuku" target="_top">elkuku</a>
+)</p><p>As suggested on [Gooogle groups](http://groups.google.com/group/joomla-dev-framework/browse_thread/thread/77dd8810690a9f4f) and reported on the CMS Tracker [#26596](http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=26596) and [#26617](http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=26617)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/201" title="Closed 2011-08-08T22:38:13Z" target="_top">#201</a>
+] Fixed a typo in JHttp (stream_set_timeout vs stream_settimeout) as it cau (					<a class="link" href="https://api.github.com/users/nikosdion" target="_top">nikosdion</a>
+)</p><p>Fixed a typo in JHttp (stream_set_timeout vs stream_settimeout) as it caused a fatal error when using the class. Hopefully, this time I got the pull request against the correct branch.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/207" title="Closed 2011-08-10T16:44:06Z" target="_top">#207</a>
+] Docblocks (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/205" title="Closed 2011-08-10T03:34:38Z" target="_top">#205</a>
+] Added missing jimport (					<a class="link" href="https://api.github.com/users/ianmacl" target="_top">ianmacl</a>
+)</p><p>Let's try this again.  *sigh*</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/204" title="Closed 2011-08-10T02:20:51Z" target="_top">#204</a>
+] Code style work (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Easy wins</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/193" title="Closed 2011-08-09T21:01:17Z" target="_top">#193</a>
+] Call to a member function qn() on a non-object (					<a class="link" href="https://api.github.com/users/jonnsl" target="_top">jonnsl</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/195" title="Closed 2011-08-09T20:06:20Z" target="_top">#195</a>
+] More doc block work (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Code style</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/203" title="Closed 2011-08-09T20:03:48Z" target="_top">#203</a>
+] Fixed function name mentioned in deprecated warning. (					<a class="link" href="https://api.github.com/users/jlleblanc" target="_top">jlleblanc</a>
+)</p><p>Deprecated JDatabase::loadResultArray() logged a warning with the incorrect replacement function name. This patch changes it from getColumn() to loadColumn().</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/191" title="Closed 2011-08-07T14:22:29Z" target="_top">#191</a>
+] Namespace more of Joomla's JavaScript functions and deprecate the old one (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>Namespace more of Joomla's JavaScript functions and deprecate the old ones.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/198" title="Closed 2011-08-08T16:48:17Z" target="_top">#198</a>
+] Various fixes (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>Again a couple of smaller fixes. (Take 2)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/194" title="Closed 2011-08-07T20:30:31Z" target="_top">#194</a>
+] Adding test execution instructions (					<a class="link" href="https://api.github.com/users/ianmacl" target="_top">ianmacl</a>
+)</p><p>Basic instructions on running phpunit and phpcs.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/192" title="Closed 2011-08-07T06:19:56Z" target="_top">#192</a>
+] Mising @since tags (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/189" title="Closed 2011-08-06T23:56:35Z" target="_top">#189</a>
+] Sync changes to the media folder from Joomla 1.7. (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>I made this against staging just to be sure, but for the future should we also make the pull requests against staging when no PHP code is involved?</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/188" title="Closed 2011-08-06T19:39:26Z" target="_top">#188</a>
+] Various little fixes. (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/186" title="Closed 2011-08-06T01:24:35Z" target="_top">#186</a>
+] Utfail (					<a class="link" href="https://api.github.com/users/ianmacl" target="_top">ianmacl</a>
+)</p><p>Fixed unit test.  The test for parse verified that the method returned null.  The method now returns a JDocument object.  Test changed to reflect that.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/185" title="Closed 2011-08-05T19:47:57Z" target="_top">#185</a>
+] JDocument fluent interface - reprise (					<a class="link" href="https://api.github.com/users/WebMechanic" target="_top">WebMechanic</a>
+)</p><p>- changed setters and mutators to return $this instead of "void".
+- cleanup of duplicate jimport('joomla.document.document')
+- whitespace and indents</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/184" title="Closed 2011-08-05T19:40:05Z" target="_top">#184</a>
+] Code cleaning. (					<a class="link" href="https://api.github.com/users/LouisLandry" target="_top">LouisLandry</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/182" title="Closed 2011-08-05T09:14:37Z" target="_top">#182</a>
+] Code cleaning (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p><p>Fixing up the HTML package.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/180" title="Closed 2011-08-04T14:38:38Z" target="_top">#180</a>
+] Allow removal of admin menu entries (					<a class="link" href="https://api.github.com/users/rvsjoen" target="_top">rvsjoen</a>
+)</p><p>This will allow developers to remove the backend entry in the components menu using for example the postflight() hook in the installer without throwing errors about missing menu entries when the component is uninstalled.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/179" title="Closed 2011-08-04T05:47:44Z" target="_top">#179</a>
+] Added String package, updated changelog (					<a class="link" href="https://api.github.com/users/robschley" target="_top">robschley</a>
+)</p><p>Moved JString from Utilites package to String package.
+Added JStringNormalize.
+Removed old CHANGELOG.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/178" title="Closed 2011-08-04T05:47:33Z" target="_top">#178</a>
+] Code cleaning. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/174" title="Closed 2011-08-04T04:09:32Z" target="_top">#174</a>
+] Graceful return when update manifest cannot be parsed (					<a class="link" href="https://api.github.com/users/rvsjoen" target="_top">rvsjoen</a>
+)</p><p>Instead of just dying when the update manifest cannot be parsed, give a warning and move on.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/173" title="Closed 2011-08-04T04:07:54Z" target="_top">#173</a>
+] Test (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>I noticed that the basic test to make sure rules load didn't have the newer rules.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/176" title="Closed 2011-08-04T03:54:30Z" target="_top">#176</a>
+] Database package cleanup (					<a class="link" href="https://api.github.com/users/robschley" target="_top">robschley</a>
+)</p><p>Renamed DatabaseException to JDatabaseException
+Fixed several instances of database exceptions being throw without
+error messages or codes.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/170" title="Closed 2011-08-02T15:21:34Z" target="_top">#170</a>
+] Docblocks Toolbar (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/168" title="Closed 2011-08-01T04:36:49Z" target="_top">#168</a>
+] Code cleaning. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/166" title="Closed 2011-08-01T03:32:55Z" target="_top">#166</a>
+] Code cleaning. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/165" title="Closed 2011-08-01T03:17:29Z" target="_top">#165</a>
+] Docblocks (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/167" title="Closed 2011-08-01T03:01:07Z" target="_top">#167</a>
+] Logging (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>Fix the problem that was making a test fail</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/113" title="Closed 2011-07-31T17:22:35Z" target="_top">#113</a>
+] Logging (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>More work on deprecation logging</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/163" title="Closed 2011-07-30T23:24:36Z" target="_top">#163</a>
+] Code cleaning; reduction of duplicate code in Database package. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/153" title="Closed 2011-07-30T22:15:00Z" target="_top">#153</a>
+] Check return value of opendir against NULL and not FALSE (					<a class="link" href="https://api.github.com/users/rvsjoen" target="_top">rvsjoen</a>
+)</p><p>We need to check the return value of opendir before it is passed to readdir, readdir does not seem to handle non-valid resources like expected. The following PHP statement will result in an infinite loop of stack traces.
+
+php -r 'while(readdir(1) !== false){ echo "hello"; };
+
+From the php documentation:
+---
+The newer internal parameter parsing API has been applied across all the extensions bundled with PHP 5.3.x. This parameter parsing API causes functions to return NULL when passed incompatible parameters. There are some exceptions to this rule, such as the get_class() function, which will continue to return FALSE on error.
+---
+
+So we either have to check the return value of opendir against NULL, or remove the type-specific comparison and simply use != instead of !==.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/162" title="Closed 2011-07-30T21:38:43Z" target="_top">#162</a>
+] Added changelog items for platform version 11.2. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/157" title="Closed 2011-07-30T21:24:18Z" target="_top">#157</a>
+] Wrong access check (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=26399
+Fix access, thanks Smokerman Nikola.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/158" title="Closed 2011-07-30T21:23:56Z" target="_top">#158</a>
+] Wrong access check (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p><p>See http://joomlacode.org/gf/project/joomla/tracker/?action=TrackerItemEdit&amp;tracker_item_id=26399  Fix access check.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/159" title="Closed 2011-07-30T06:35:33Z" target="_top">#159</a>
+] Code cleaning and code reduction (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p><p>Code cleaning in Database package.
+Dupe code reduction by extending JDatabaseExporterMySqli from JDatabaseExporterMySql.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/154" title="Closed 2011-07-29T20:46:42Z" target="_top">#154</a>
+] Fix wrong subpackage tag (					<a class="link" href="https://api.github.com/users/rvsjoen" target="_top">rvsjoen</a>
+)</p><p>This just fixes a @subpackage tag which is wrong</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/147" title="Closed 2011-07-29T05:43:32Z" target="_top">#147</a>
+] Implement a color field for JForm. (					<a class="link" href="https://api.github.com/users/realityking" target="_top">realityking</a>
+)</p><p>This uses the native color picker in Opera 11 and falls back to MooRainbow in all other browsers.
+
+Also adds the corresponding JFormRule for validation.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/152" title="Closed 2011-07-29T08:58:03Z" target="_top">#152</a>
+] Added formatting standard for Eclipse PDT3 and the formatter plugin. (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/151" title="Closed 2011-07-29T08:36:30Z" target="_top">#151</a>
+] Minor tweak to build file. (					<a class="link" href="https://api.github.com/users/LouisLandry" target="_top">LouisLandry</a>
+)</p></li></ul></div><div class="itemizedlist"><ul class="itemizedlist" type="disc"><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/150" title="Closed 2011-07-29T08:16:54Z" target="_top">#150</a>
+] Modifications to the code sniffer and format rules -- and some code cleaning. (					<a class="link" href="https://api.github.com/users/LouisLandry" target="_top">LouisLandry</a>
+)</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/149" title="Closed 2011-07-29T03:50:56Z" target="_top">#149</a>
+] Initial documentation and version 11.2 changelog (					<a class="link" href="https://api.github.com/users/eddieajau" target="_top">eddieajau</a>
+)</p><p>Adds a documentation sections to the tree with two books in Docbook format (which can be ultimately used to push to ePub, PDF and a variety of other formats). First is the platform manual which, at the moment, only holds the changelog appendix (up to date for version 11.2, version 11.1 needs a lot of work).  With this appendix added, other developers doing pull requests can also make synchronous additions to at least the changelog (usually the explanation they put in the pull request, like this one) or notes about the feature changes in the body of the manual (when that is fleshed out more).
+
+The other book is the coding standards manual work in progress from other material that several people have been working on.</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/145" title="Closed 2011-07-27T20:57:14Z" target="_top">#145</a>
+] Docblock fix (					<a class="link" href="https://api.github.com/users/pasamio" target="_top">pasamio</a>
+)</p><p>Noticed a formatting issue, not sure what the return should be set to and fixed the incorrectly marked authorise function from 11.1 to 11.2</p></li><li class="listitem"><p>[					<a class="link" href="https://api.github.com/repos/joomla/joomla-platform/issues/144" title="Closed 2011-07-27T18:26:29Z" target="_top">#144</a>
+] Get rid of characters (					<a class="link" href="https://api.github.com/users/elinw" target="_top">elinw</a>
+)</p></li></ul></div></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="pr01.html">Prev</a>&nbsp;</td><td width="20%" align="center">&nbsp;</td><td width="40%" align="right">&nbsp;<a accesskey="n" href="apas02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Preface&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;A.2.&nbsp;Version 11.2</td></tr></table></div></body></html>
