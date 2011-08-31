@@ -1,0 +1,113 @@
+@CHARSET "UTF-8";
+
+body {
+	margin-top: 1.0em;
+	background-color: #99eba9;
+	font-family: Helvetica, Arial, FreeSans, san-serif;
+	color: #000000;
+}
+
+#container {
+	margin: 0 auto;
+	width: 700px;
+}
+#container2 {
+	margin: 0 auto;
+	width: 800px;
+}
+
+a {
+	color: #e5664c;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+h1 {
+	font-size: 3.8em;
+	color: #661456;
+	margin-bottom: 3px;
+}
+
+h1 .small {
+	font-size: 0.4em;
+}
+
+h1 a {
+	text-decoration: none;
+	color: #334c33;
+}
+
+h1 a:hover {
+	color: #334c33;
+	text-decoration: none;
+}
+
+h2 {
+	font-size: 1.5em;
+	color: #7f997f;
+}
+
+h3 {
+	text-align: center;
+	color: #661456;
+}
+
+.description {
+	font-size: 1.2em;
+	margin-bottom: 30px;
+	margin-top: 30px;
+	font-style: italic;
+}
+
+.download {
+	float: right;
+}
+
+pre {
+	background: #000;
+	color: #fff;
+	padding: 15px;
+	border-radius: 15px;
+	box-shadow: 0 0 10px #000;
+	font-family: monospace;
+}
+
+hr {
+	border: 0;
+	width: 80%;
+	border-bottom: 1px solid #aaa
+}
+
+.footer {
+	text-align: center;
+	padding-top: 30px;
+	font-style: italic;
+}
+
+img {
+	border: 0;
+}
+
+div.jpmBox {
+	border: 1px solid silver;
+	border-radius: 15px 15px 15px 15px;
+	box-shadow: 2px 2px 2px #333333;
+	margin: 0.3em;
+	padding: 0.5em;
+	float: left;
+	background-color: #eee;
+}
+
+div.timestamp {
+	text-align: right;
+}
+div.timestamp span {
+	background-color: #ffc;
+	border: 1px solid silver;
+	font-family: monospace;
+	padding: 0.3em;
+	border-radius: 5px;
+}

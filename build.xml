@@ -3,12 +3,28 @@
 
 	<!-- CHANGE ME !!! -->
 	<property name="dobudish_path" value="/home/elkuku/Downloads/docbook/dobudish-1.1.4" />
+	<property name="phUML_path" value="/home/elkuku/eclipsespace/indigogit2/phUML/app" />
+	<property name="jplatform_path" value="/home/elkuku/eclipsespace/indigogit2/joomla-platform-kuku-docbuild" />
 
-	<target name="build" depends="clean,buildDoku" />
+	<target name="build" depends="clean,buildDoku,buildDiagrams,buildStatus,copyImages" />
 
 	<target name="clean">
 		<delete dir="${basedir}/build" />
 		<mkdir dir="${basedir}/build" />
+	</target>
+
+	<target name="buildStatus">
+		<exec executable="tools/buildstatus.php">
+			<arg value="${jplatform_path}" />
+			<arg value="${basedir}" />
+		</exec>
+	</target>
+
+	<target name="test">
+		<dirset id="package" dir="${jplatform_path}">
+		</dirset>
+		<echo message="${package}" />
+
 	</target>
 
 	<target name="buildDoku">
@@ -47,6 +63,109 @@
 		</copy>
 		<copy todir="${basedir}/build">
 			<fileset dir="${dobudish_path}/documents/${project}/output/pdf">
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="buildDiagrams">
+		<delete dir="${basedir}/build/diagrams" />
+		<mkdir dir="${basedir}/build/diagrams" />
+
+		<!-- @TODO - Loops ?? -->
+
+		<antcall target="getDiag">
+			<param name="package" value="access" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="application" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="base" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="cache" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="client" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="database" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="document" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="environment" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="error" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="event" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="filesystem" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="filter" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="form" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="html" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="installer" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="language" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="log" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="mail" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="plugin" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="registry" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="session" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="string" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="updater" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="user" />
+		</antcall>
+		<antcall target="getDiag">
+			<param name="package" value="utilities" />
+		</antcall>
+
+		<zip destfile="${basedir}/build/joomla-class-diagrams.zip" basedir="${basedir}/build/diagrams" />
+
+	</target>
+
+	<target name="getDiag">
+		<exec executable="./phuml.php" dir="${phUML_path}">
+			<arg value="-r" />
+			<arg value="${jplatform_path}/libraries/joomla/${package}/" />
+			<arg value="-graphviz" />
+			<arg value="-dot" />
+			<arg value="${basedir}/build/diagrams/${package}.png" />
+		</exec>
+	</target>
+	
+	<target name="copyImages">
+		<copy todir="${basedir}/build/images">
+			<fileset dir="${jplatform_path}/build/pdepend">
 			</fileset>
 		</copy>
 	</target>
