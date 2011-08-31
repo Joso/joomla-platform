@@ -17,7 +17,8 @@ $destinationPath = $argv[2];
 $packages = array();
 
 foreach (new DirectoryIterator($sourcePath.'/libraries/joomla') as $d) {
-    if($d->isDot())
+    if($d->isDot()
+    || ! $d->isDir())
     continue;
 
     $packages[] = $d->getFilename();
