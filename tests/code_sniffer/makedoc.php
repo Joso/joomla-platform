@@ -113,7 +113,7 @@ class SnifferTestsMakeDoc extends JCli
 					{
 						if ('*/' == $t)
 						{
-							// Standatd "declaration" ends, content (code) begins
+							// Standard "declaration" ends, content (code) begins
 							$state = self::S_CONTENT;
 
 							continue;
@@ -138,7 +138,7 @@ class SnifferTestsMakeDoc extends JCli
 					{
 						if ('*/' == $t)
 						{
-							// Standatd "declaration" ends, content (code) begins
+							// Standard "declaration" ends, content (code) begins
 							$state = self::S_CONTENT;
 
 							continue;
@@ -241,7 +241,6 @@ class SnifferTestsMakeDoc extends JCli
 
 			$p[] = '<body>';
 
-
 			$p[] = '<h1>The Joomla! Coding Standards</h1>';
 			$p[] = '<a href="index.html">&lArr; Index</a>';
 			$p[] = '<h2>'.$title.'</h2>';
@@ -258,9 +257,9 @@ class SnifferTestsMakeDoc extends JCli
 				$p[] = '<td colspan="2" class="std" id="'.$i.'">';
 				$p[] = '<a href="#'.$i.'">'.$bad->standard.'</a> ';
 
-				if ($this->showComments)
+				if ($this->showComments && $bad->comment)
 				{
-					$p[] =($bad->comment) ? '<br /><small>'.implode('<br />', $bad->comment).'</small>' : '';
+					$p[] = '<br /><small>'.implode('<br />', $bad->comment).'</small>';
 				}
 
 				if ($this->showSniffs && $bad->sniff)
@@ -270,6 +269,7 @@ class SnifferTestsMakeDoc extends JCli
 
 				$p[] = '</td>';
 				$p[] = '</tr>';
+
 				$p[] = '<tr style="vertical-align: top;">';
 
 				$p[] = '<td class="bad"><pre>';
