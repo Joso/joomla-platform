@@ -1,0 +1,348 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Joomla! Coding Standards - ControlStructures</title>
+<style>
+td.good, th.good {background-color: #e5ff99;}
+td.good span {background-color: #99ff00;}
+td.bad, th.bad {background-color: #ffb2b2;}
+td.bad span {background-color: #ff6666;}
+td.std {background-color: #fff; padding: 0.3em; font-weight: bold;}
+td a {color: black; text-decoration:none; display: block;}
+td a:hover, td:target a {color: orange;}
+td:target {border: 2px solid orange;}
+b.draft {color: #555; opacity: .3; position: fixed; left: 30%; top: 50%; font-size: 4em; -moz-transform: rotate(-35deg);}
+</style>
+</head>
+<body>
+<h1>The Joomla! Coding Standards</h1>
+<a href="index.html">&lArr; Index</a>
+<h2>ControlStructures</h2>
+<b class="draft">D R A F T</b>
+<table>
+<tr><th class="bad">Don't</th><th class="good">Do</th></tr>
+<tr>
+<td colspan="2" class="std" id="0">
+<a href="#0"> if-else: Wrong brace placement</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+<span>if ($test) {</span>
+	echo 'True';
+<span>} elseif ($test === false) {</span>
+	echo 'Really false';
+<span>} else {</span>
+	echo 'A white lie';
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+if ($test)
+<span>{</span>
+	echo 'True';
+<span>}</span>
+// Comments can go here.
+elseif ($test === false)
+<span>{</span>
+	echo 'Really false';
+<span>}</span>
+else
+<span>{</span>
+	echo 'A white lie';
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="1">
+<a href="#1"> if: Wrong spacing</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+<span>if(true)</span>
+{
+	true;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+<span>if (true)</span>
+{
+	true;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="2">
+<a href="#2"> Multi-line IF statement not indented correctly.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+if (true
+<span>|| false</span>
+)
+{
+	true;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+if (true
+<span>	|| false</span>
+)
+{
+	true;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="3">
+<a href="#3"> Closing parenthesis of a multi-line IF statement must be on a new line.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+if (true
+<span>	|| false)</span>
+{
+	true;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+if (true
+	|| false
+<span>)</span>
+{
+	true;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="4">
+<a href="#4"> Each line in a multi-line IF statement must begin with a boolean operator.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+if (true ||
+<span>	false</span>
+)
+{
+	true;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+if (true
+<span>	|| false</span>
+)
+{
+	true;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="5">
+<a href="#5"> do-while: Wrong brace placement / wrong spacing</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+<span>do {</span>
+	$i++;
+<span>} while ($i &lt; 10);</span>
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+do
+<span>{</span>
+	$i++;
+<span>}</span>
+while ($i &lt; 10);
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="6">
+<a href="#6"> for: Wrong brace placement / wrong spacing</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+<span>for ($i = 0; $i &lt; $n; $i++) {</span>
+	echo 'Increment = '.$i;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+for ($i = 0; $i &lt; $n; $i++)
+<span>{</span>
+	echo 'Increment = '.$i;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="7">
+<a href="#7"> foreach: Wrong brace placement / wrong spacing</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+<span>foreach ($rows as $index =&gt; $row) {</span>
+	echo 'Index = '.$id.', Value = '.$row;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+foreach ($rows as $index =&gt; $row)
+<span>{</span>
+	echo 'Index = '.$id.', Value = '.$row;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="8">
+<a href="#8"> while: Wrong brace placement / wrong spacing</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+<span>while (!$done) {</span>
+	$done = true;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+while (!$done)
+<span>{</span>
+	$done = true;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="9">
+<a href="#9"> switch: Wrong brace placement / wrong spacing</a> 
+<br /><small>When using a switch statement, the case keywords are indented.<br />The break statement starts on a newline assuming the indent of the code within the case.</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+<span>switch ($value) {</span>
+	case 'a':
+		echo 'A';
+		break;
+&nbsp;
+	default:
+		echo 'I give up';
+	break;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+switch ($value)
+<span>{</span>
+	case 'a':
+		echo 'A';
+		break;
+&nbsp;
+	default:
+		echo 'I give up';
+	break;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="10">
+<a href="#10"> The statement "else if" is not allowed - use "elseif"</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+if (true)
+{
+	$i;
+}
+<span>else if (true)</span>
+{
+	$i;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+if (true)
+{
+	$i;
+}
+<span>elseif (true)</span>
+{
+	$i;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="11">
+<a href="#11"> @TODO: References</a> 
+<br /><small>When using references, there should be a space before the reference operator and no space between it and the function or variable name.<br />Note: In PHP 5, reference operators are not required for objects. All objects are handled by reference.</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+$ref1 = &amp; $this-&gt;sql;
+&nbsp;
+$ref1 =&amp; $this-&gt;sql;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+$ref1  = &amp;$this-&gt;sql;
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="12">
+<a href="#12"> @TODO: Arrays</a> 
+<br /><small>Assignments (the => operator) in arrays may be aligned with tabs.<br />When splitting array definitions onto several lines, the last value may also have a trailing comma.<br />This is valid PHP syntax and helps to keep code diffs minimal.</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+$options = array('foo' =&gt; 'foo', 'spam' =&gt; 'spam');
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+$options = array(
+	'foo'	=&gt; 'foo',
+	'spam'	=&gt; 'spam',
+);
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="13">
+<a href="#13"> Inline control structures are discouraged</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+if(true) true;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+if (true)
+<span>{</span>
+	true;
+<span>}</span>
+</pre></td>
+</tr>
+</table>
+<a href="index.html">&lArr; Index</a>
+</body></html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Joomla! Coding Standards - WhiteSpace</title>
+<style>
+td.good, th.good {background-color: #e5ff99;}
+td.good span {background-color: #99ff00;}
+td.bad, th.bad {background-color: #ffb2b2;}
+td.bad span {background-color: #ff6666;}
+td.std {background-color: #fff; padding: 0.3em; font-weight: bold;}
+td a {color: black; text-decoration:none; display: block;}
+td a:hover, td:target a {color: orange;}
+td:target {border: 2px solid orange;}
+b.draft {color: #555; opacity: .3; position: fixed; left: 30%; top: 50%; font-size: 4em; -moz-transform: rotate(-35deg);}
+</style>
+</head>
+<body>
+<h1>The Joomla! Coding Standards</h1>
+<a href="index.html">&lArr; Index</a>
+<h2>WhiteSpace</h2>
+<b class="draft">D R A F T</b>
+<table>
+<tr><th class="bad">Don't</th><th class="good">Do</th></tr>
+<tr>
+<td colspan="2" class="std" id="0">
+<a href="#0"> Tabs must be used to indent lines; spaces are not allowed.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+if (true)
+{
+<span>    true;</span>
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+if (true)
+{
+<span>	true;</span>
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="1">
+<a href="#1"> @TODO: Concatenation operator must be surrounded by spaces.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+$i.'test';
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+$i . 'test';
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="2">
+<a href="#2"> @TODO: Operators must have a space before and after.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+$i=0;
+$i&gt;0;
+$i+=0;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+$i = 0;
+$i &gt; 0;
+$i += 0;
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="3">
+<a href="#3"> @TODO: Unary operators must not have a space.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+$i --;
+-- $i;
+$i ++;
+++ $i;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+$i--;
+--$i;
+$i++;
+++$i;
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="4">
+<a href="#4"> @TODO: Casting must have one space.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+(int)$i;
+(int)  $i;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+(int) $i;
+(int) $i;
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="5">
+<a href="#5"> No space before semicolon.</a> 
+<br /><small>That's a common leftover...</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+$foo = 'bar' ;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+$foo = 'bar';
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="6">
+<a href="#6"> Functions and classes must not contain multiple empty lines in a row.</a> 
+<br /><small>That's a common leftover...</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+/**
+ * Comment
+ *
+ * @return foo
+ */
+function foo()
+{
+	$foo;
+<span>&nbsp;</span>
+<span>&nbsp;</span>
+	$bar;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+/**
+ * Comment
+ *
+ * @return foo
+ */
+function foo()
+{
+	$foo;
+<span>&nbsp;</span>
+	$bar;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="7">
+<a href="#7"> Please end your files with an empty line.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+<span>&nbsp;</span>
+</pre></td>
+</tr>
+</table>
+<a href="index.html">&lArr; Index</a>
+</body></html>

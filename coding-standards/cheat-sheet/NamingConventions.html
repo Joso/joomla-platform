@@ -1,0 +1,296 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Joomla! Coding Standards - NamingConventions</title>
+<style>
+td.good, th.good {background-color: #e5ff99;}
+td.good span {background-color: #99ff00;}
+td.bad, th.bad {background-color: #ffb2b2;}
+td.bad span {background-color: #ff6666;}
+td.std {background-color: #fff; padding: 0.3em; font-weight: bold;}
+td a {color: black; text-decoration:none; display: block;}
+td a:hover, td:target a {color: orange;}
+td:target {border: 2px solid orange;}
+b.draft {color: #555; opacity: .3; position: fixed; left: 30%; top: 50%; font-size: 4em; -moz-transform: rotate(-35deg);}
+</style>
+</head>
+<body>
+<h1>The Joomla! Coding Standards</h1>
+<a href="index.html">&lArr; Index</a>
+<h2>NamingConventions</h2>
+<b class="draft">D R A F T</b>
+<table>
+<tr><th class="bad">Don't</th><th class="good">Do</th></tr>
+<tr>
+<td colspan="2" class="std" id="0">
+<a href="#0"> Public properties must *not* have a prefix.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+/**
+ * Foo class
+ *
+ * @package  Foo
+ * @since    foo
+ */
+class FunctionTest
+{
+<span>	public $_foo = 1;</span>
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+/**
+ * Foo class
+ *
+ * @package  Foo
+ * @since    foo
+ */
+class FunctionTest
+{
+<span>	public $foo = 1;</span>
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="1">
+<a href="#1"> Protected properties must *not* have a prefix.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+	protected $_foo = 1;
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+	protected $foo = 1;
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="2">
+<a href="#2"> Private properties *must* have a prefix.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+	private $foo = 1;
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+	private $_foo = 1;
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="3">
+<a href="#3"> Public functions must *not* be prefixed with an underscore.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	public function _foo()</span>
+	{
+	}
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	public function foo()</span>
+	{
+	}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="4">
+<a href="#4"> Protected functions must *not* be prefixed with an underscore.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	protected function _bar()</span>
+	{
+	}
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	protected function bar()</span>
+	{
+	}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="5">
+<a href="#5"> Private method *must* be prefixed with an underscore.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	private function foobar()</span>
+	{
+	}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	private function _foobar()</span>
+	{
+	}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="6">
+<a href="#6"> Only PHP magic methods should be prefixed with a double underscore.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	public function __bar()</span>
+	{
+	}
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	public function bar()</span>
+	{
+	}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="7">
+<a href="#7"> Use CamelCase notation. @TODO Not working</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	function thefunctionname()</span>
+	{
+	}
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+	/**
+	 * Comment
+	 *
+	 * @return foo
+	 */
+<span>	function theFunctionName()</span>
+	{
+	}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="8">
+<a href="#8"> Invalid function name.</a> 
+<br /><small>Use CamelCase notation. The first word has to be lower case.</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+/**
+ * Comment
+ *
+ * @return foo
+ */
+<span>function FOOBAR()</span>
+{
+}
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+/**
+ * Comment
+ *
+ * @return foo
+ */
+<span>function fooBar()</span>
+{
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="9">
+<a href="#9"> Use CamelCase notation. @TODO Not working</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+/**
+ * Comment
+ *
+ * @return foo
+ */
+<span>function thefunctionfame()</span>
+{
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+/**
+ * Comment
+ *
+ * @return foo
+ */
+<span>function theFunctionName()</span>
+{
+}
+</pre></td>
+</tr>
+</table>
+<a href="index.html">&lArr; Index</a>
+</body></html>

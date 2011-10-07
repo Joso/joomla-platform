@@ -1,0 +1,255 @@
+<!DOCTYPE html><html><head><meta charset="UTF-8">
+<title>Joomla! Coding Standards - Commenting</title>
+<style>
+td.good, th.good {background-color: #e5ff99;}
+td.good span {background-color: #99ff00;}
+td.bad, th.bad {background-color: #ffb2b2;}
+td.bad span {background-color: #ff6666;}
+td.std {background-color: #fff; padding: 0.3em; font-weight: bold;}
+td a {color: black; text-decoration:none; display: block;}
+td a:hover, td:target a {color: orange;}
+td:target {border: 2px solid orange;}
+b.draft {color: #555; opacity: .3; position: fixed; left: 30%; top: 50%; font-size: 4em; -moz-transform: rotate(-35deg);}
+</style>
+</head>
+<body>
+<h1>The Joomla! Coding Standards</h1>
+<a href="index.html">&lArr; Index</a>
+<h2>Commenting</h2>
+<b class="draft">D R A F T</b>
+<table>
+<tr><th class="bad">Don't</th><th class="good">Do</th></tr>
+<tr>
+<td colspan="2" class="std" id="0">
+<a href="#0"> File comments: You must use "/**" style comments for a file comment.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+// Here goes the file comment...
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+/**
+ * Joomla! Coding Standards checker.
+ *
+ * This file contains all the valid notations for the Joomla! coding standard.
+ * Target is to create a style checker that validates all of this constructs.
+ *
+ * @package    Joomla.Platform
+ *
+ * @copyright  Copyright (C) 2005 - 2011 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE
+ */
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="1">
+<a href="#1"> Perl-style comments "#" are not allowed. Use "// Comment." or "/* comment" instead.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+# Discouraged comment style
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+// Good comment style
+&nbsp;
+/*
+ * Good comment style
+ */
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="2">
+<a href="#2"> Class comments: Only multiline comments with "/**" should be used to comment classes.</a> 
+
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+<span>// Foo</span>
+class Foo
+{
+}
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+<span>/**</span>
+ * Comment
+ *
+ * @package  Foo
+ * @since    foo
+ */
+class Foo
+{
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="3">
+<a href="#3"> Comments must have content ;)</a> 
+<br /><small>No comment...</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+/**
+<span> *</span>
+ */
+class Foo
+{
+}
+&nbsp;
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+/**
+<span> * Comment</span>
+ *
+<span> * @package  Foo</span>
+<span> * @since    foo</span>
+ */
+class Foo
+{
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="4">
+<a href="#4"> Class Docblocks.</a> 
+<br /><small>The class Docblock consists of the following required and optional elements in the following order.<br /><br />* Short description (required, unless the file contains more than two classes or functions), followed by a blank line).<br />* Long description (optional, followed by a blank line).<br />* @category (optional and rarely used)<br />* @package (required)<br />* @subpackage (optional)<br />* @author (optional but only permitted in non-Joomla source files, for example, included third-party libraries like Geshi)<br />* @copyright (optional unless different from the file Docblock)<br />* @license (optional unless different from the file Docblock)<br />* @deprecated (optional)<br />* @link (optional)<br />* @see (optional)<br />* @since (required, being the version of the software the class was introduced)</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+/**
+<span> * Comment</span>
+ */
+class JClass extends JObject
+{
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+/**
+<span> * A utility class.</span>
+ *
+<span> * @package     Joomla.Framework</span>
+<span> * @subpackage  XBase</span>
+<span> * @since       1.6</span>
+ */
+class JClass extends JObject
+{
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="5">
+<a href="#5"> @TODO: Class Property DocBlocks.</a> 
+<br /><small>The class property Docblock consists of the following required and optional elements in the following order.<br /><br />* Short description (required, followed by a blank line)<br />* @var (required, followed by the property type)<br />* @deprecated (optional)<br />* @since (required)</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+/**
+ * A utility class.
+ *
+ * @package     Joomla.Framework
+ * @subpackage  XBase
+ * @since       1.6
+ */
+class JClass extends JObject
+{
+	/**
+<span>	 * Comment</span>
+	 */
+	public $name;
+}
+&nbsp;
+</pre></td>
+<td class="good"><pre>
+/**
+ * A utility class.
+ *
+ * @package     Joomla.Framework
+ * @subpackage  XBase
+ * @since       1.6
+ */
+class JClass extends JObject
+{
+	/**
+<span>	 * Human readable name</span>
+	 *
+<span>	 * @var    string</span>
+<span>	 * @since  1.6</span>
+	 */
+	public $name;
+}
+</pre></td>
+</tr>
+<tr>
+<td colspan="2" class="std" id="6">
+<a href="#6"> Class Method DocBlocks.</a> 
+<br /><small>The DocBlock for class methods follows the same convention as for PHP functions (see above).</small>
+</td>
+</tr>
+<tr style="vertical-align: top;">
+<td class="bad"><pre>
+/**
+ * A utility class.
+ *
+ * @package     Joomla.Framework
+ * @subpackage  XBase
+ * @since       1.6
+ */
+class JClass extends JObject
+{
+	/**
+<span>	 * Comment</span>
+	 */
+	public function getName($case = null)
+	{
+		// Body of method.
+&nbsp;
+		return $this-&gt;name;
+	}
+}
+</pre></td>
+<td class="good"><pre>
+/**
+ * A utility class.
+ *
+ * @package     Joomla.Framework
+ * @subpackage  XBase
+ * @since       1.6
+ */
+class JClass extends JObject
+{
+	/**
+<span>	 * Method to get the name of the class.</span>
+	 *
+<span>	 * @param   string  $case  Optionally return in upper/lower case.</span>
+	 *
+<span>	 * @return  boolean  True if successfully loaded, false otherwise.</span>
+	 *
+<span>	 * @since   1.6</span>
+	 */
+	public function getName($case = null)
+	{
+		// Body of method.
+&nbsp;
+		return $this-&gt;name;
+	}
+}
+</pre></td>
+</tr>
+</table>
+<a href="index.html">&lArr; Index</a>
+</body></html>
