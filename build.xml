@@ -4,13 +4,24 @@
 	<!-- CHANGE ME !!! -->
 	<property name="dobudish_path" value="/home/elkuku/Downloads/docbook/dobudish-1.1.4" />
 	<property name="phUML_path" value="/home/elkuku/eclipsespace/indigogit2/phUML/app" />
-	<property name="jplatform_path" value="/home/elkuku/eclipsespace/indigogit2/joomla-platform-kuku-docbuild" />
+	<property name="jplatform_path" value="/home/elkuku/eclipsespace/indigogit3/joomla-platform2" />
+	<property name="jplatform_path2" value="/home/elkuku/eclipsespace/indigogit3/joomla-platform" />
 
-	<target name="build" depends="clean,buildDoku,buildDiagrams,buildStatus,copyImages" />
+	<target name="build" depends="clean,buildDoku,buildDiagrams,buildStatus,copyImages,createSniffCheats" />
 
 	<target name="clean">
 		<delete dir="${basedir}/build" />
 		<mkdir dir="${basedir}/build" />
+	</target>
+
+	<target name="createSniffCheats">
+		<exec executable="./makedoc.php" dir="${jplatform_path2}/tests/code_sniffer">
+			<arg value="${basedir}/coding-standards/cheat-sheet" />
+			<!-- BUG input->get(...., 'cmd') is broken :( 
+			<arg value="-
+			-target=${basedir}/coding-standards/cheat-sheet" />
+			-->
+		</exec>
 	</target>
 
 	<target name="buildStatus">
@@ -162,11 +173,12 @@
 			<arg value="${basedir}/build/diagrams/${package}.png" />
 		</exec>
 	</target>
-	
+
 	<target name="copyImages">
 		<copy todir="${basedir}/build/images">
 			<fileset dir="${jplatform_path}/build/pdepend">
 			</fileset>
 		</copy>
 	</target>
+
 </project>
