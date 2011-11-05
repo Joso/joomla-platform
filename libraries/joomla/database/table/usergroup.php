@@ -205,24 +205,26 @@ class JTableUsergroup extends JTable
 			$query->from('#__viewlevels');
 			$db->setQuery($query);
 			$rules = $db->loadObjectList();
-			
+
 			$match_ids = array();
-			foreach($rules as $rule)
+			foreach ($rules as $rule)
 			{
-				foreach($ids as $id)
+				foreach ($ids as $id)
 				{
-					if(strstr($rule->rules, '['.$id) || strstr($rule->rules, ','.$id) || strstr($rule->rules, $id.']'))
+					if (strstr($rule->rules, '[' . $id) || strstr($rule->rules, ',' . $id) || strstr($rule->rules, $id . ']'))
+					{
 						$match_ids[] = $rule->id;
+					}
 				}
 			}
-			
-			if(!empty($match_ids))
+
+			if (!empty($match_ids))
 			{
 				$query = $db->getQuery(true);
-				$query->set('rules='.str_repeat('replace(', 4*count($ids)).'rules'.implode('', $replace));
+				$query->set('rules=' . str_repeat('replace(', 4*count($ids)) . 'rules' . implode('', $replace));
 				$query->update('#__viewlevels');
 						//$query->where('rules REGEXP "(,|\\\\[)('.implode('|', $ids).')(,|\\\\])"');
-						$query->where('id IN ('.implode(',', $match_ids).')');
+						$query->where('id IN (' . implode(',', $match_ids) . ')');
 				$db->setQuery($query);
 				if (!$db->query())
 				{

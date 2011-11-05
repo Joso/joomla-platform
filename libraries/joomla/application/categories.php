@@ -217,16 +217,15 @@ class JCategories
 
 		// Right join with c for category
 		$query->select('c.*');
-	    $case_when = ' CASE WHEN ';
-	    $case_when .= $query->charLength('c.alias');
-	    $case_when .= ' THEN ';
-	    $c_id = $query->castAsChar('c.id');
-	    $case_when .= $query->concatenate(array($c_id, 'c.alias'), ':');
-	    $case_when .= ' ELSE ';
-	    $case_when .= $c_id.' END as slug'; 
-	    $query->select($case_when); 
-		
-    
+		$case_when = ' CASE WHEN ';
+		$case_when .= $query->charLength('c.alias');
+		$case_when .= ' THEN ';
+		$c_id = $query->castAsChar('c.id');
+		$case_when .= $query->concatenate(array($c_id, 'c.alias'), ':');
+		$case_when .= ' ELSE ';
+		$case_when .= $c_id . ' END as slug';
+		$query->select($case_when);
+
 		//$query->select('CASE WHEN CHAR_LENGTH(c.alias) THEN CONCAT_WS(":", c.id, c.alias) ELSE c.id END as slug');
 		$query->from('#__categories as c');
 		$query->where('(c.extension=' . $db->Quote($extension) . ' OR c.extension=' . $db->Quote('system') . ')');
@@ -263,7 +262,7 @@ class JCategories
 			if ($this->_options['published'] == 1)
 			{
 				$query->leftJoin(
-					$db->quoteName($this->_table) . ' AS i ON i.' . $db->quoteName($this->_field) . ' = c.id AND i.' . $this->_statefield . ' = 1'
+				$db->quoteName($this->_table) . ' AS i ON i.' . $db->quoteName($this->_field) . ' = c.id AND i.' . $this->_statefield . ' = 1'
 				);
 			}
 			else
@@ -275,17 +274,19 @@ class JCategories
 		}
 
 		// Group by
-		$query->group('c.id, c.asset_id, c.access, c.alias, c.checked_out, c.checked_out_time,
-	 	c.created_time, c.created_user_id, c.description, c.extension, c.hits, c.language, c.level,
-	 	c.lft, c.metadata, c.metadesc, c.metakey, c.modified_time, c.note, c.params, c.parent_id,
-	 	c.path, c.published, c.rgt, c.title, c.modified_user_id');
+		$query->group(
+			'c.id, c.asset_id, c.access, c.alias, c.checked_out, c.checked_out_time,
+			c.created_time, c.created_user_id, c.description, c.extension, c.hits, c.language, c.level,
+			c.lft, c.metadata, c.metadesc, c.metakey, c.modified_time, c.note, c.params, c.parent_id,
+			c.path, c.published, c.rgt, c.title, c.modified_user_id'
+		);
 
 		// Filter by language
 		if ($app->isSite() && $app->getLanguageFilter())
 		{
 			$query->where(
 				'(' . ($id != 'root' ? 'c.id=s.id OR ' : '') . 'c.language in (' . $db->Quote(JFactory::getLanguage()->getTag()) . ',' .
-					$db->Quote('*') . '))'
+			$db->Quote('*') . '))'
 			);
 		}
 

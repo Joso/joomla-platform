@@ -209,7 +209,9 @@ class JTableCategory extends JTableNested
 			// Existing category
 			$this->modified_time = $date->format('Y-m-d H:i:s');
 			$this->modified_user_id	= $user->get('id');
-		} else {
+		}
+		else
+		{
 			// New category
 		$this->created_time = $date->format('Y-m-d H:i:s');
 			$this->created_user_id	= $user->get('id');

@@ -1487,7 +1487,7 @@ abstract class JTable extends JObject
 	 */
 	protected function _lock()
 	{
-		
+
 		$this->_db->lock($this->_tbl);
 		$this->_locked = true;
 		return true;

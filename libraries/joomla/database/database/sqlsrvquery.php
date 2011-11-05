@@ -64,8 +64,10 @@ class JDatabaseQuerySQLSrv extends JDatabaseQuery
 					$query .= (string) $this->set;
 				}
 				// Columns-Values method
-				else if ($this->values) {
-					if ($this->columns) {
+				elseif ($this->values)
+				{
+					if ($this->columns)
+					{
 						$query .= (string) $this->columns;
 					}
 
@@ -74,11 +76,12 @@ class JDatabaseQuerySQLSrv extends JDatabaseQuery
 					$query .= 'VALUES ';
 					$query .= (string) $this->values;
 
-					
-					if($this->auto_increment_field) {
-						$query = 'SET IDENTITY_INSERT '.$tableName.' ON;' .$query .'SET IDENTITY_INSERT '.$tableName.' OFF;';
+					if ($this->auto_increment_field)
+					{
+						$query = 'SET IDENTITY_INSERT ' . $tableName . ' ON;' . $query . 'SET IDENTITY_INSERT ' . $tableName . ' OFF;';
 					}
-					if ($this->where) {
+					if ($this->where)
+					{
 						$query .= (string) $this->where;
 					}
 
@@ -88,7 +91,7 @@ class JDatabaseQuerySQLSrv extends JDatabaseQuery
 
 			default:
 				$query = parent::__toString();
-				break;
+			break;
 		}
 
 		return $query;
