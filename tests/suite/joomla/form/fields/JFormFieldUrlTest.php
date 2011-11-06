@@ -8,46 +8,54 @@
  */
 
 /**
- * Test class for JForm.
+ * Test class for JFormFieldUrl.
  *
  * @package		Joomla.UnitTest
  * @subpackage  Form
+ * @since       11.3
  */
-class JFormFieldContentLanguagesTest extends JoomlaTestCase
+class JFormFieldUrlTest extends JoomlaTestCase
 {
 	/**
-	 * Sets up dependancies for the test.
+	 * Sets up dependencies for the test.
+	 *
+	 * @return  void
+	 *
+	 * @since   11.3
 	 */
 	protected function setUp()
 	{
 		jimport('joomla.form.form');
 		jimport('joomla.form.formfield');
-		require_once JPATH_PLATFORM.'/joomla/form/fields/contentlanguage.php';
+		jimport('joomla.form.helper');
+		require_once JPATH_PLATFORM.'/joomla/form/fields/url.php';
 		include_once dirname(__DIR__).'/inspectors.php';
 	}
 
 	/**
 	 * Test the getInput method.
+	 *
+	 * @return  void
+	 *
+	 * @since   11.3
 	 */
 	public function testGetInput()
 	{
 		$form = new JFormInspector('form1');
 
 		$this->assertThat(
-			$form->load('<form><field name="contentlanguage" type="contentlanguage" /></form>'),
+			$form->load('<form><field name="url" type="url" /></form>'),
 			$this->isTrue(),
 			'Line:'.__LINE__.' XML string should load successfully.'
 		);
 
-		$field = new JFormFieldContentLanguage($form);
+		$field = new JFormFieldUrl($form);
 
 		$this->assertThat(
 			$field->setup($form->getXml()->field, 'value'),
 			$this->isTrue(),
 			'Line:'.__LINE__.' The setup method should return true.'
 		);
-
-		$this->markTestIncomplete('Problems encountered in next assertion');
 
 		$this->assertThat(
 			strlen($field->input),
