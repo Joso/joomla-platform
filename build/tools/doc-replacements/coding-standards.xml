@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- This file is part of DobuDish                                           -->
+
+<!-- DobuDish is free software; you can redistribute it and/or modify        -->
+<!-- it under the terms of the GNU General Public License as published by    -->
+<!-- the Free Software Foundation; either version 2 of the License, or       -->
+<!-- (at your option) any later version.                                     -->
+
+<!-- DobuDish is distributed in the hope that it will be useful,             -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of          -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the           -->
+<!-- GNU General Public License for more details.                            -->
+
+<!-- You should have received a copy of the GNU General Public License       -->
+<!-- along with DobuDish; if not, write to the Free Software                 -->
+<!-- Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA -->
+
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+          "http://www.docbook.org/xml/4.5/docbookx.dtd"
+  [
+    <!ENTITY % global.entities SYSTEM "../../../system/custom-xsl/global-entities.xml">
+    %global.entities;
+
+    <!ENTITY % entities SYSTEM "../custom-cfg/local-entities.xml">
+    %entities;
+  ]
+>
+
+<book lang="en">
+
+  <bookinfo>
+    <title>The Joomla! Platform Coding Standards</title>
+  </bookinfo>
+
+  <xi:include href="chapters/preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="chapters/source-code-management.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="chapters/basic-guidelines.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+
+  <xi:include href="chapters/php.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+</book>
