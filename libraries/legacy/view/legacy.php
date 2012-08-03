@@ -16,7 +16,7 @@ defined('JPATH_PLATFORM') or die;
  *
  * @package     Joomla.Legacy
  * @subpackage  View
- * @since       11.1
+ * @since       12.2
  */
 class JViewLegacy extends JObject
 {
@@ -94,6 +94,7 @@ class JViewLegacy extends JObject
 	 * Callback for escaping.
 	 *
 	 * @var string
+	 * @deprecated 13.3
 	 */
 	protected $_escape = 'htmlspecialchars';
 
@@ -116,7 +117,7 @@ class JViewLegacy extends JObject
 	 *                          helper_path: the path (optional) of the helper files (defaults to base_path + /helpers/)<br/>
 	 *                          layout: the layout (optional) to use to display the view<br/>
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function __construct($config = array())
 	{
@@ -136,6 +137,7 @@ class JViewLegacy extends JObject
 		// Set the charset (used by the variable escaping functions)
 		if (array_key_exists('charset', $config))
 		{
+			JLog::add('Setting a custom charset for escaping is deprecated. Override JViewLegacy::escape() instead.', JLog::WARNING, 'deprecated');
 			$this->_charset = $config['charset'];
 		}
 
@@ -198,7 +200,7 @@ class JViewLegacy extends JObject
 	 * @return  mixed  A string if successful, otherwise a Error object.
 	 *
 	 * @see     fetch()
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function display($tpl = null)
 	{
@@ -245,9 +247,13 @@ class JViewLegacy extends JObject
 	 * </code>
 	 *
 	 * @return  boolean  True on success, false on failure.
+	 *
+	 * @deprecated  13.3 Use native PHP syntax.
 	 */
 	public function assign()
 	{
+		JLog::add(__METHOD__ . ' is deprecated. Use native PHP syntax.', JLog::WARNING, 'deprecated');
+
 		// Get the arguments; there may be 1 or 2.
 		$arg0 = @func_get_arg(0);
 		$arg1 = @func_get_arg(1);
@@ -315,10 +321,13 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  boolean  True on success, false on failure.
 	 *
-	 * @since   11.1
+	 * @since   12.2
+	 * @deprecated  13.3  Use native PHP syntax.
 	 */
 	public function assignRef($key, &$val)
 	{
+		JLog::add(__METHOD__ . ' is deprecated. Use native PHP syntax.', JLog::WARNING, 'deprecated');
+
 		if (is_string($key) && substr($key, 0, 1) != '_')
 		{
 			$this->$key = &$val;
@@ -338,7 +347,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  mixed  The escaped value.
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function escape($var)
 	{
@@ -358,11 +367,10 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  mixed  The return value of the method
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function get($property, $default = null)
 	{
-
 		// If $model is null we use the default model
 		if (is_null($default))
 		{
@@ -402,7 +410,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  mixed  JModelLegacy object
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function getModel($name = null)
 	{
@@ -441,7 +449,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  string  The name of the model
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 * @throws  Exception
 	 */
 	public function getName()
@@ -475,7 +483,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  object   The added model.
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function setModel($model, $default = false)
 	{
@@ -496,7 +504,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  string  Previous value.
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function setLayout($layout)
 	{
@@ -525,7 +533,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  string   Previous value
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function setLayoutExt($value)
 	{
@@ -545,10 +553,13 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  void
 	 *
-	 * @since   11.1
+	 * @since   12.2
+	 * @deprecated  13.3  Override JViewLegacy::escape() instead.
 	 */
 	public function setEscape($spec)
 	{
+		JLog::add(__METHOD__ . ' is deprecated. Override JViewLegacy::escape() instead.', JLog::WARNING, 'deprecated');
+
 		$this->_escape = $spec;
 	}
 
@@ -559,7 +570,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  void
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function addTemplatePath($path)
 	{
@@ -573,7 +584,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  void
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function addHelperPath($path)
 	{
@@ -587,7 +598,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  string  The output of the the template script.
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 * @throws  Exception
 	 */
 	public function loadTemplate($tpl = null)
@@ -670,7 +681,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  void
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	public function loadHelper($hlp = null)
 	{
@@ -696,7 +707,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  void
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	protected function _setPath($type, $path)
 	{
@@ -732,7 +743,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  void
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	protected function _addPath($type, $path)
 	{
@@ -765,7 +776,7 @@ class JViewLegacy extends JObject
 	 *
 	 * @return  string  The filename
 	 *
-	 * @since   11.1
+	 * @since   12.2
 	 */
 	protected function _createFileName($type, $parts = array())
 	{

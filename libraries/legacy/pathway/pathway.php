@@ -18,7 +18,7 @@ defined('JPATH_PLATFORM') or die;
  * @subpackage  Pathway
  * @since       11.1
  */
-class JPathway extends JObject
+class JPathway
 {
 	/**
 	 * @var    array  Array to hold the pathway item objects
@@ -58,6 +58,7 @@ class JPathway extends JObject
 	 * @return  JPathway  A JPathway object.
 	 *
 	 * @since   11.1
+	 * @throws  RuntimeException
 	 */
 	public static function getInstance($client, $options = array())
 	{
@@ -68,6 +69,8 @@ class JPathway extends JObject
 
 			if (!class_exists($classname))
 			{
+				JLog::add('Non-autoloadable JPathway subclasses are deprecated.', JLog::WARNING, 'deprecated');
+
 				// Load the pathway object
 				$info = JApplicationHelper::getClientInfo($client, true);
 
@@ -87,7 +90,7 @@ class JPathway extends JObject
 			}
 			else
 			{
-				throw new Exception(JText::sprintf('JLIB_APPLICATION_ERROR_PATHWAY_LOAD', $client), 500);
+				throw new RuntimeException(JText::sprintf('JLIB_APPLICATION_ERROR_PATHWAY_LOAD', $client), 500);
 			}
 		}
 

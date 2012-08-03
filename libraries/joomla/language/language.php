@@ -184,24 +184,31 @@ class JLanguage
 
 		// Look for a language specific localise class
 		$class = str_replace('-', '_', $lang . 'Localise');
-		if (!class_exists($class) && defined('JPATH_SITE'))
+		$paths = array();
+		if (defined('JPATH_SITE'))
 		{
-			// Class does not exist. Try to find it in the Site Language Folder
-			$localise = JPATH_SITE . "/language/$lang/$lang.localise.php";
-			if (file_exists($localise))
-			{
-				require_once $localise;
-			}
+			// Note: Manual indexing to enforce load order.
+			$paths[0] = JPATH_SITE . "/language/overrides/$lang.localise.php";
+			$paths[2] = JPATH_SITE . "/language/$lang/$lang.localise.php";
 		}
 
-		if (!class_exists($class) && defined('JPATH_ADMINISTRATOR'))
+		if (defined('JPATH_ADMINISTRATOR'))
 		{
-			// Class does not exist. Try to find it in the Administrator Language Folder
-			$localise = JPATH_ADMINISTRATOR . "/language/$lang/$lang.localise.php";
-			if (file_exists($localise))
+			// Note: Manual indexing to enforce load order.
+			$paths[1] = JPATH_ADMINISTRATOR . "/language/overrides/$lang.localise.php";
+			$paths[3] = JPATH_ADMINISTRATOR . "/language/$lang/$lang.localise.php";
+		}
+
+		ksort($paths);
+		$path = reset($paths);
+
+		while (!class_exists($class) && $path)
+		{
+			if (file_exists($path))
 			{
-				require_once $localise;
+				require_once $path;
 			}
+			$path = next($paths);
 		}
 
 		if (class_exists($class))
@@ -368,7 +375,7 @@ class JLanguage
 	/**
 	 * Getter for transliteration function
 	 *
-	 * @return  string  Function name or the actual function for PHP 5.3.
+	 * @return  callable  The transliterator function
 	 *
 	 * @since   11.1
 	 */
@@ -380,9 +387,9 @@ class JLanguage
 	/**
 	 * Set the transliteration function.
 	 *
-	 * @param   mixed  $function  Function name (string) or the actual function for PHP 5.3 (function).
+	 * @param   callable  $function  Function name or the actual function.
 	 *
-	 * @return  mixed
+	 * @return  callable  The previous function.
 	 *
 	 * @since   11.1
 	 */
@@ -418,7 +425,7 @@ class JLanguage
 	/**
 	 * Getter for pluralSuffixesCallback function.
 	 *
-	 * @return  mixed  Function name (string) or the actual function for PHP 5.3 (function).
+	 * @return  callable  Function name or the actual function.
 	 *
 	 * @since   11.1
 	 */
@@ -430,9 +437,9 @@ class JLanguage
 	/**
 	 * Set the pluralSuffixes function.
 	 *
-	 * @param   mixed  $function  Function name (string) or actual function for PHP 5.3 (function)
+	 * @param   callable  $function  Function name or actual function.
 	 *
-	 * @return  mixed  Function name or the actual function for PHP 5.3.
+	 * @return  callable  The previous function.
 	 *
 	 * @since   11.1
 	 */
@@ -466,7 +473,7 @@ class JLanguage
 	/**
 	 * Getter for ignoredSearchWordsCallback function.
 	 *
-	 * @return  mixed  Function name (string) or the actual function for PHP 5.3 (function).
+	 * @return  callable  Function name or the actual function.
 	 *
 	 * @since   11.1
 	 */
@@ -478,9 +485,9 @@ class JLanguage
 	/**
 	 * Setter for the ignoredSearchWordsCallback function
 	 *
-	 * @param   mixed  $function  Function name (string) or actual function for PHP 5.3 (function)
+	 * @param   callable  $function  Function name or actual function.
 	 *
-	 * @return  mixed  Function name (string) or the actual function for PHP 5.3 (function)
+	 * @return  callable  The previous function.
 	 *
 	 * @since   11.1
 	 */
@@ -514,7 +521,7 @@ class JLanguage
 	/**
 	 * Getter for lowerLimitSearchWordCallback function
 	 *
-	 * @return  mixed  Function name (string) or the actual function for PHP 5.3 (function).
+	 * @return  callable  Function name or the actual function.
 	 *
 	 * @since   11.1
 	 */
@@ -526,9 +533,9 @@ class JLanguage
 	/**
 	 * Setter for the lowerLimitSearchWordCallback function.
 	 *
-	 * @param   mixed  $function  Function name (string) or actual function for PHP 5.3 (function)
+	 * @param   callable  $function  Function name or actual function.
 	 *
-	 * @return  string|function Function name or the actual function for PHP 5.3.
+	 * @return  callable  The previous function.
 	 *
 	 * @since   11.1
 	 */
@@ -562,7 +569,7 @@ class JLanguage
 	/**
 	 * Getter for upperLimitSearchWordCallback function
 	 *
-	 * @return  string|function  Function name or the actual function for PHP 5.3.
+	 * @return  callable  Function name or the actual function.
 	 *
 	 * @since   11.1
 	 */
@@ -574,9 +581,9 @@ class JLanguage
 	/**
 	 * Setter for the upperLimitSearchWordCallback function
 	 *
-	 * @param   string  $function  The name of the callback function.
+	 * @param   callable  $function  Function name or the actual function.
 	 *
-	 * @return  mixed  Function name (string) or the actual function for PHP 5.3 (function).
+	 * @return  callable  The previous function.
 	 *
 	 * @since   11.1
 	 */
@@ -610,7 +617,7 @@ class JLanguage
 	/**
 	 * Getter for searchDisplayedCharactersNumberCallback function
 	 *
-	 * @return  mixed  Function name or the actual function for PHP 5.3.
+	 * @return  callable  Function name or the actual function.
 	 *
 	 * @since   11.1
 	 */
@@ -622,9 +629,9 @@ class JLanguage
 	/**
 	 * Setter for the searchDisplayedCharactersNumberCallback function.
 	 *
-	 * @param   string  $function  The name of the callback.
+	 * @param   callable  $function  Function name or the actual function.
 	 *
-	 * @return  mixed  Function name (string) or the actual function for PHP 5.3 (function).
+	 * @return  callable  The previous function.
 	 *
 	 * @since   11.1
 	 */
@@ -1293,7 +1300,8 @@ class JLanguage
 		}
 
 		// Try to load the file
-		if (!$xml = JFactory::getXML($path))
+		$xml = simplexml_load_file($path);
+		if (!$xml)
 		{
 			return null;
 		}
