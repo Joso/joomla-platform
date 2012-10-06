@@ -296,7 +296,7 @@ abstract class JDatabaseDriverPdo extends JDatabaseDriver
 		}
 		catch (PDOException $e)
 		{
-			throw new RuntimeException('Could not connect to PDO' . ': ' . $e->getMessage(), 2);
+			throw new RuntimeException('Could not connect to PDO' . ': ' . $e->getMessage(), 2, $e);
 		}
 	}
 
@@ -373,11 +373,13 @@ abstract class JDatabaseDriverPdo extends JDatabaseDriver
 			$sql .= ' LIMIT ' . $this->offset . ', ' . $this->limit;
 		}
 
+		// Increment the query counter.
+		$this->count++;
+
 		// If debugging is enabled then let's log the query.
 		if ($this->debug)
 		{
-			// Increment the query counter and add the query to the object queue.
-			$this->count++;
+			// Add the query to the object queue.
 			$this->log[] = $sql;
 
 			JLog::add($sql, JLog::DEBUG, 'databasequery');
@@ -619,7 +621,7 @@ abstract class JDatabaseDriverPdo extends JDatabaseDriver
 	/**
 	 * Method to get the auto-incremented value from the last INSERT statement.
 	 *
-	 * @return  integer  The value of the auto-increment field from the last inserted row.
+	 * @return  string  The value of the auto-increment field from the last inserted row.
 	 *
 	 * @since   12.1
 	 */
@@ -950,10 +952,7 @@ abstract class JDatabaseDriverPdo extends JDatabaseDriver
 		// Get properties of the current class
 		$properties = $reflect->getProperties();
 
-		// Static properties of the current class
-		$staticProperties = $reflect->getStaticProperties();
-
-		foreach ($properties as $key => $property)
+		foreach ($properties as $property)
 		{
 			// Do not serialize properties that are PDO
 			if ($property->isStatic() == false && !($this->{$property->name} instanceof PDO))

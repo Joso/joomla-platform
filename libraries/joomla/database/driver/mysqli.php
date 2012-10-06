@@ -313,7 +313,6 @@ class JDatabaseDriverMysqli extends JDatabaseDriver
 	{
 		$this->connect();
 
-		// Initialise variables.
 		$result = array();
 
 		// Sanitize input to an array and iterate over the list.
@@ -429,7 +428,7 @@ class JDatabaseDriverMysqli extends JDatabaseDriver
 	/**
 	 * Method to get the auto-incremented value from the last INSERT statement.
 	 *
-	 * @return  integer  The value of the auto-increment field from the last inserted row.
+	 * @return  mixed  The value of the auto-increment field from the last inserted row. If the value is greater than maximal int value, it will return a string.
 	 *
 	 * @since   12.1
 	 */
@@ -482,11 +481,13 @@ class JDatabaseDriverMysqli extends JDatabaseDriver
 			$sql .= ' LIMIT ' . $this->offset . ', ' . $this->limit;
 		}
 
+		// Increment the query counter.
+		$this->count++;
+
 		// If debugging is enabled then let's log the query.
 		if ($this->debug)
 		{
-			// Increment the query counter and add the query to the object queue.
-			$this->count++;
+			// Add the query to the object queue.
 			$this->log[] = $sql;
 
 			JLog::add($sql, JLog::DEBUG, 'databasequery');
@@ -502,6 +503,9 @@ class JDatabaseDriverMysqli extends JDatabaseDriver
 		// If an error occurred handle it.
 		if (!$this->cursor)
 		{
+			$this->errorNum = (int) mysqli_errno($this->connection);
+			$this->errorMsg = (string) mysqli_error($this->connection) . ' SQL=' . $sql;
+
 			// Check if the server was disconnected.
 			if (!$this->connected())
 			{
@@ -514,9 +518,6 @@ class JDatabaseDriverMysqli extends JDatabaseDriver
 				// If connect fails, ignore that exception and throw the normal exception.
 				catch (RuntimeException $e)
 				{
-					$this->errorNum = (int) mysqli_errno($this->connection);
-					$this->errorMsg = (string) mysqli_error($this->connection) . ' SQL=' . $sql;
-
 					JLog::add(JText::sprintf('JLIB_DATABASE_QUERY_FAILED', $this->errorNum, $this->errorMsg), JLog::ERROR, 'databasequery');
 					throw new RuntimeException($this->errorMsg, $this->errorNum);
 				}
@@ -527,9 +528,6 @@ class JDatabaseDriverMysqli extends JDatabaseDriver
 			// The server was not disconnected.
 			else
 			{
-				$this->errorNum = (int) mysqli_errno($this->connection);
-				$this->errorMsg = (string) mysqli_error($this->connection) . ' SQL=' . $sql;
-
 				JLog::add(JText::sprintf('JLIB_DATABASE_QUERY_FAILED', $this->errorNum, $this->errorMsg), JLog::ERROR, 'databasequery');
 				throw new RuntimeException($this->errorMsg, $this->errorNum);
 			}
