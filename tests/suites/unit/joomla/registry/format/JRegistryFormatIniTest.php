@@ -7,7 +7,7 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-require_once JPATH_PLATFORM.'/joomla/registry/format.php';
+require_once JPATH_PLATFORM . '/joomla/registry/format.php';
 
 /**
  * Test class for JRegistryFormatINI.

@@ -7,10 +7,10 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-require_once JPATH_PLATFORM.'/joomla/log/log.php';
-require_once JPATH_PLATFORM.'/joomla/log/entry.php';
-require_once JPATH_PLATFORM.'/joomla/log/logger.php';
-require_once __DIR__.'/stubs/log/inspector.php';
+require_once JPATH_PLATFORM . '/joomla/log/log.php';
+require_once JPATH_PLATFORM . '/joomla/log/entry.php';
+require_once JPATH_PLATFORM . '/joomla/log/logger.php';
+require_once __DIR__ . '/stubs/log/inspector.php';
 
 /**
  * Test class for JLog.
@@ -397,19 +397,19 @@ class JLogTest extends PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$log->configurations,
 			$this->equalTo($expectedConfigurations),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		$this->assertThat(
 			$log->lookup,
 			$this->equalTo($expectedLookup),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		$this->assertThat(
 			$log->loggers,
 			$this->equalTo($expectedLoggers),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		// Start over so we test that it actually sets the instance appropriately.
@@ -435,19 +435,19 @@ class JLogTest extends PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$log->configurations,
 			$this->equalTo($expectedConfigurations),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		$this->assertThat(
 			$log->lookup,
 			$this->equalTo($expectedLookup),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		$this->assertThat(
 			$log->loggers,
 			$this->equalTo($expectedLoggers),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 	}
 }

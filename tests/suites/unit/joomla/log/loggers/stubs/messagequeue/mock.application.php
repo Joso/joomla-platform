@@ -34,7 +34,7 @@ class JApplicationMock
 	 *
 	 * @return  void
 	 *
-	 * @since	11.1
+	 * @since    11.1
 	 */
 	public function enqueueMessage($msg, $type = 'message')
 	{

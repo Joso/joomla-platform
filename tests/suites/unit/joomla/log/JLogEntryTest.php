@@ -32,28 +32,28 @@ class JLogEntryTest extends PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$tmp->message,
 			$this->equalTo('Lorem ipsum dolor sit amet'),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		// Priority.
 		$this->assertThat(
 			$tmp->priority,
 			$this->equalTo(JLog::INFO),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		// Category.
 		$this->assertThat(
 			$tmp->category,
 			$this->equalTo(''),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		// Date.
 		$this->assertThat(
 			$tmp->date->toISO8601(),
 			$this->equalTo($date->toISO8601()),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 	}
 
@@ -70,21 +70,21 @@ class JLogEntryTest extends PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$tmp->priority,
 			$this->equalTo(JLog::INFO),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		$tmp = new JLogEntry('Lorem ipsum dolor sit amet', 23642872);
 		$this->assertThat(
 			$tmp->priority,
 			$this->equalTo(JLog::INFO),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		$tmp = new JLogEntry('Lorem ipsum dolor sit amet', 'foobar');
 		$this->assertThat(
 			$tmp->priority,
 			$this->equalTo(JLog::INFO),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 	}
 
@@ -102,7 +102,7 @@ class JLogEntryTest extends PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$tmp->category,
 			$this->equalTo('testingthecategory'),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		// Category should not have spaces.
@@ -110,7 +110,7 @@ class JLogEntryTest extends PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$tmp->category,
 			$this->equalTo('testingthecategory'),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		// Category should not have special characters.
@@ -118,7 +118,7 @@ class JLogEntryTest extends PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$tmp->category,
 			$this->equalTo('testingthecategory'),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 
 		// Category should allow numbers.
@@ -126,7 +126,7 @@ class JLogEntryTest extends PHPUnit_Framework_TestCase
 		$this->assertThat(
 			$tmp->category,
 			$this->equalTo('testing1the2category'),
-			'Line: '.__LINE__.'.'
+			'Line: ' . __LINE__ . '.'
 		);
 	}
 }
